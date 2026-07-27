@@ -432,7 +432,7 @@
     .why-section {
       position: relative;
       background: linear-gradient(180deg, #b8c8d4 0%, #a8bad0 40%, #9ab0c8 100%);
-      padding: 100px 0 60px 0;
+      padding: 120px 0 60px 0;
       overflow: hidden;
     }
 
@@ -443,6 +443,7 @@
       padding: 0 48px;
       position: relative;
       z-index: 5;
+      will-change: transform;
     }
 
     .why-word {
@@ -454,24 +455,8 @@
       line-height: 0.88;
       letter-spacing: -0.03em;
       text-shadow: 2px 4px 24px rgba(0, 0, 0, 0.12);
-      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s ease;
       will-change: transform, opacity;
-    }
-
-    .why-word.why-left {
-      transform: translate(-70px, 90px);
-      opacity: 0;
-    }
-
-    .why-word.why-right {
-      transform: translate(70px, 90px);
-      opacity: 0;
-    }
-
-    .why-section.in-view .why-word.why-left,
-    .why-section.in-view .why-word.why-right {
-      transform: translate(0, 0);
-      opacity: 1;
+      transition: transform 0.05s linear, opacity 0.05s linear;
     }
 
     .why-center {
@@ -998,19 +983,48 @@
       window.addEventListener('resize', updateSec2Slides, { passive: true });
       updateSec2Slides();
 
-      // Intersection Observer for WHY CHOOSE US entrance animation
+      // Scroll-linked animation for WHY CHOOSE US section
       const whySection = document.querySelector('.why-section');
-      if (whySection) {
-        const whyObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              whySection.classList.add('in-view');
-            } else if (entry.boundingClientRect.top > 0) {
-              whySection.classList.remove('in-view');
-            }
-          });
-        }, { threshold: 0.15 });
-        whyObserver.observe(whySection);
+      const whyLeft = document.querySelector('.why-word.why-left');
+      const whyRight = document.querySelector('.why-word.why-right');
+      const whyText = document.querySelector('.why-text');
+
+      if (whySection && whyLeft && whyRight && whyText) {
+        function animateWhySection() {
+          const rect = whySection.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          
+          const totalDistance = windowHeight + rect.height;
+          let progress = (windowHeight - rect.top) / totalDistance;
+          progress = Math.max(0, Math.min(1, progress));
+
+          // Phase 1 (progress 0 to 0.45): WHY (left) and US? (right) move UP & IN to align with container
+          let alignProgress = Math.min(1, progress / 0.45);
+          let easeAlign = Math.sin((alignProgress * Math.PI) / 2);
+
+          let leftX = -120 * (1 - easeAlign);
+          let leftY = 140 * (1 - easeAlign);
+          let leftOpacity = Math.min(1, easeAlign * 1.5);
+
+          let rightX = 120 * (1 - easeAlign);
+          let rightY = 140 * (1 - easeAlign);
+          let rightOpacity = Math.min(1, easeAlign * 1.5);
+
+          whyLeft.style.transform = `translate(${leftX}px, ${leftY}px)`;
+          whyLeft.style.opacity = leftOpacity;
+
+          whyRight.style.transform = `translate(${rightX}px, ${rightY}px)`;
+          whyRight.style.opacity = rightOpacity;
+
+          // Phase 2 (progress 0.45 to 1.0): Entire WHY [Container] US? header moves UP together
+          let upProgress = Math.max(0, (progress - 0.45) / 0.55);
+          let groupY = -upProgress * 120;
+          whyText.style.transform = `translateY(${groupY}px)`;
+        }
+
+        window.addEventListener('scroll', animateWhySection, { passive: true });
+        window.addEventListener('resize', animateWhySection, { passive: true });
+        animateWhySection();
       }
     });
   </script>
