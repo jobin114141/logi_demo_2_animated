@@ -428,115 +428,7 @@
       line-height: 1.65;
     }
 
-    /* WHY CHOOSE US */
-    .why-section {
-      position: relative;
-      background: linear-gradient(180deg, #b8c8d4 0%, #a8bad0 40%, #9ab0c8 100%);
-      padding: 120px 0 60px 0;
-      overflow: hidden;
-    }
 
-    .why-text {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      position: relative;
-      z-index: 5;
-      will-change: transform;
-    }
-
-    .why-word {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: clamp(64px, 12vw, 190px);
-      text-transform: uppercase;
-      color: var(--white);
-      line-height: 0.88;
-      letter-spacing: -0.03em;
-      text-shadow: 2px 4px 24px rgba(0, 0, 0, 0.12);
-      will-change: transform, opacity;
-      transition: transform 0.05s linear, opacity 0.05s linear;
-    }
-
-    .why-center {
-      flex: 0 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      position: relative;
-    }
-
-    .why-container-wrap {
-      width: clamp(120px, 18vw, 240px);
-      filter: drop-shadow(0 18px 48px rgba(0, 0, 0, 0.28));
-      animation: swing 4s ease-in-out infinite;
-      transform-origin: top center;
-    }
-
-    .why-container-wrap img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    @keyframes swing {
-      0% {
-        transform: rotate(-0.6deg);
-      }
-
-      50% {
-        transform: rotate(0.6deg);
-      }
-
-      100% {
-        transform: rotate(-0.6deg);
-      }
-    }
-
-    /* BADGES */
-    .badges-row {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 40px 80px 50px;
-      gap: 16px;
-      position: relative;
-      z-index: 5;
-    }
-
-    .badge-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .badge-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      border: 2.5px solid rgba(255, 255, 255, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      font-size: 22px;
-      opacity: 0.85;
-    }
-
-    .badge-label-text {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--white);
-      opacity: 0.75;
-      text-align: center;
-    }
 
     /* BOTTOM */
     .bottom-section {
@@ -838,42 +730,7 @@
     </section>
   </div>
 
-  <!-- WHY CHOOSE US -->
-  <section class="why-section" id="why">
-    <div class="why-text">
-      <div class="why-word why-left">WHY</div>
-      <div class="why-center">
-        <div class="why-container-wrap">
-          <img src="images/container.png" alt="Shipping container" />
-        </div>
-      </div>
-      <div class="why-word why-right">US?</div>
-    </div>
 
-    <!-- Badges -->
-    <div class="badges-row">
-      <div class="badge-item">
-        <div class="badge-icon">🏆</div>
-        <div class="badge-label-text">Award<br>Winning</div>
-      </div>
-      <div class="badge-item">
-        <div class="badge-icon">🌍</div>
-        <div class="badge-label-text">60+<br>Countries</div>
-      </div>
-      <div class="badge-item">
-        <div class="badge-icon">⚡</div>
-        <div class="badge-label-text">Fast<br>Delivery</div>
-      </div>
-      <div class="badge-item">
-        <div class="badge-icon">🔒</div>
-        <div class="badge-label-text">Secure<br>Cargo</div>
-      </div>
-      <div class="badge-item">
-        <div class="badge-icon">📋</div>
-        <div class="badge-label-text">ISO<br>Certified</div>
-      </div>
-    </div>
-  </section>
 
   <!-- BOTTOM TAG ROW + CONTAINERS IMAGE -->
   <section class="bottom-section" id="services">
@@ -983,49 +840,7 @@
       window.addEventListener('resize', updateSec2Slides, { passive: true });
       updateSec2Slides();
 
-      // Scroll-linked animation for WHY CHOOSE US section
-      const whySection = document.querySelector('.why-section');
-      const whyLeft = document.querySelector('.why-word.why-left');
-      const whyRight = document.querySelector('.why-word.why-right');
-      const whyText = document.querySelector('.why-text');
 
-      if (whySection && whyLeft && whyRight && whyText) {
-        function animateWhySection() {
-          const rect = whySection.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          
-          const totalDistance = windowHeight + rect.height;
-          let progress = (windowHeight - rect.top) / totalDistance;
-          progress = Math.max(0, Math.min(1, progress));
-
-          // Phase 1 (progress 0 to 0.45): WHY (left) and US? (right) move UP & IN to align with container
-          let alignProgress = Math.min(1, progress / 0.45);
-          let easeAlign = Math.sin((alignProgress * Math.PI) / 2);
-
-          let leftX = -120 * (1 - easeAlign);
-          let leftY = 140 * (1 - easeAlign);
-          let leftOpacity = Math.min(1, easeAlign * 1.5);
-
-          let rightX = 120 * (1 - easeAlign);
-          let rightY = 140 * (1 - easeAlign);
-          let rightOpacity = Math.min(1, easeAlign * 1.5);
-
-          whyLeft.style.transform = `translate(${leftX}px, ${leftY}px)`;
-          whyLeft.style.opacity = leftOpacity;
-
-          whyRight.style.transform = `translate(${rightX}px, ${rightY}px)`;
-          whyRight.style.opacity = rightOpacity;
-
-          // Phase 2 (progress 0.45 to 1.0): Entire WHY [Container] US? header moves UP together
-          let upProgress = Math.max(0, (progress - 0.45) / 0.55);
-          let groupY = -upProgress * 120;
-          whyText.style.transform = `translateY(${groupY}px)`;
-        }
-
-        window.addEventListener('scroll', animateWhySection, { passive: true });
-        window.addEventListener('resize', animateWhySection, { passive: true });
-        animateWhySection();
-      }
     });
   </script>
 </body>
