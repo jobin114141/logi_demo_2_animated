@@ -22,9 +22,9 @@
     }
 
     :root {
-      --sky: #b8c8d4;
-      --sky-mid: #a0b4c2;
-      --sky-top: #8fa8ba;
+      --sky: #becadb;
+      --sky-mid: #adc0d2;
+      --sky-top: #9fb3c8;
       --dark: #1a1e22;
       --darker: #0d1014;
       --orange: #e05a20;
@@ -47,7 +47,7 @@
       position: relative;
       width: 100%;
       min-height: 100vh;
-      background: linear-gradient(180deg, #6e8fa8 0%, #8fafc4 18%, #a4bfce 35%, #b8cdd8 55%, #c8d4de 100%);
+      background: var(--sky);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -345,12 +345,21 @@
       transform-origin: 50% -155px;
     }
 
+    @keyframes swing {
+      0%, 100% {
+        transform: rotate(-1.2deg);
+      }
+      50% {
+        transform: rotate(1.2deg);
+      }
+    }
+
     /* Crane Steel Cable / Rope Line */
     .centered-container-img::before {
       content: '';
       position: absolute;
       top: -250px;
-      left: 50.82%;
+      left: 49.89%;  
       transform: translateX(-50%);
       width: 3px;
       height: 265px;
