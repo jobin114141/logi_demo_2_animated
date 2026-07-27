@@ -223,7 +223,7 @@
     /* STICKY SCROLL WRAPPER FOR SECTION 2 */
     .sec2-scroll-wrapper {
       position: relative;
-      height: 280vh;
+      height: 380vh;
     }
 
     .section-2 {
@@ -246,17 +246,28 @@
       width: 100%;
       max-width: 1400px;
       height: 85vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
     }
 
-    .sec2-slide {
+    .sec2-left-col-wrap,
+    .sec2-right-col-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .sec2-left-item,
+    .sec2-right-item {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       opacity: 0;
       visibility: hidden;
       transform: translateY(100%);
@@ -264,14 +275,21 @@
       pointer-events: none;
     }
 
-    .sec2-slide.active {
+    .sec2-right-item {
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .sec2-left-item.active,
+    .sec2-right-item.active {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
       pointer-events: auto;
     }
 
-    .sec2-slide.exit-up {
+    .sec2-left-item.exit-up,
+    .sec2-right-item.exit-up {
       opacity: 0;
       visibility: hidden;
       transform: translateY(-100%);
@@ -733,19 +751,23 @@
         </div>
       </div>
 
-      <!-- Slide Indicator Dots -->
+      <!-- Slide Indicator Dots (5 steps: 0, 1, 2, 3, 4) -->
       <div class="sec2-slide-dots">
-        <span class="dot active" data-slide="0"></span>
-        <span class="dot" data-slide="1"></span>
-        <span class="dot" data-slide="2"></span>
+        <span class="dot active" data-step="0"></span>
+        <span class="dot" data-step="1"></span>
+        <span class="dot" data-step="2"></span>
+        <span class="dot" data-step="3"></span>
+        <span class="dot" data-step="4"></span>
       </div>
 
-      <!-- Content Grid Overlay with Scroll Slides -->
+      <!-- Content Grid Overlay with Independent Left & Right Items -->
       <div class="sec2-grid">
 
-        <!-- Slide 1 (Default) -->
-        <div class="sec2-slide active" data-slide-index="0">
-          <div class="sec2-left-col">
+        <!-- LEFT COLUMN WRAPPER -->
+        <div class="sec2-left-col-wrap">
+
+          <!-- Left Item 1 -->
+          <div class="sec2-left-item active" data-left-index="0">
             <div class="sec2-big-title">
               EMPOWERING YOUR<br>GROWTH THROUGH<br>PARTNERSHIP
             </div>
@@ -758,19 +780,8 @@
             </div>
           </div>
 
-          <div class="sec2-right-col">
-            <div class="sec2-block">
-              <h2 class="sec2-heading">EXPERIENCE AND<br>EXPERTISE</h2>
-              <p class="sec2-body">
-                At Influence Pro Trading, we are more than just a wholesale distributor; we are a strategic partner committed to fueling your business's growth. With years of experience in the industry, we have honed our expertise to offer a vast array of products, including computers, electronics, and agricultural supplies, ensuring that we cater to a diverse range of industries.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="sec2-slide" data-slide-index="1">
-          <div class="sec2-left-col">
+          <!-- Left Item 2 -->
+          <div class="sec2-left-item" data-left-index="1">
             <div class="sec2-big-title">
               INNOVATION IN<br>GLOBAL LOGISTICS<br>&amp; TRADING
             </div>
@@ -778,24 +789,13 @@
             <div class="sec2-block">
               <h2 class="sec2-heading">GLOBAL NETWORK<br>&amp; BORDERLESS REACH</h2>
               <p class="sec2-body">
-                Connecting markets across continents with seamless freight solutions, customs clearance, and dedicated logistics pipelines tailored to your operations.
+                Connecting markets across continents with seamless freight solutions, customs clearance, and dedicated logistics pipelines.
               </p>
             </div>
           </div>
 
-          <div class="sec2-right-col">
-            <div class="sec2-block">
-              <h2 class="sec2-heading">UNMATCHED RELIABILITY<br>&amp; CARGO SAFETY</h2>
-              <p class="sec2-body">
-                Our end-to-end supply chain management guarantees precision tracking, secure freighting, and on-time port deliveries around the clock.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="sec2-slide" data-slide-index="2">
-          <div class="sec2-left-col">
+          <!-- Left Item 3 -->
+          <div class="sec2-left-item" data-left-index="2">
             <div class="sec2-big-title">
               SUSTAINABLE EFFICIENCY<br>FOR MODERN<br>COMMERCE
             </div>
@@ -808,7 +808,33 @@
             </div>
           </div>
 
-          <div class="sec2-right-col">
+        </div>
+
+        <!-- RIGHT COLUMN WRAPPER -->
+        <div class="sec2-right-col-wrap">
+
+          <!-- Right Item 1 -->
+          <div class="sec2-right-item active" data-right-index="0">
+            <div class="sec2-block">
+              <h2 class="sec2-heading">EXPERIENCE AND<br>EXPERTISE</h2>
+              <p class="sec2-body">
+                At Influence Pro Trading, we are more than just a wholesale distributor; we are a strategic partner committed to fueling your business's growth. With years of experience in the industry, we have honed our expertise to offer a vast array of products, including computers, electronics, and agricultural supplies.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Item 2 -->
+          <div class="sec2-right-item" data-right-index="1">
+            <div class="sec2-block">
+              <h2 class="sec2-heading">UNMATCHED RELIABILITY<br>&amp; CARGO SAFETY</h2>
+              <p class="sec2-body">
+                Our end-to-end supply chain management guarantees precision tracking, secure freighting, and on-time port deliveries around the clock across all trade lanes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Item 3 -->
+          <div class="sec2-right-item" data-right-index="2">
             <div class="sec2-block">
               <h2 class="sec2-heading">DEDICATED 24/7<br>PORT OPERATIONS</h2>
               <p class="sec2-body">
@@ -816,6 +842,7 @@
               </p>
             </div>
           </div>
+
         </div>
 
       </div>
@@ -896,10 +923,13 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const scrollWrapper = document.querySelector('.sec2-scroll-wrapper');
-      const slides = document.querySelectorAll('.sec2-slide');
+      const leftItems = document.querySelectorAll('.sec2-left-item');
+      const rightItems = document.querySelectorAll('.sec2-right-item');
       const dots = document.querySelectorAll('.sec2-slide-dots .dot');
 
-      if (!scrollWrapper || !slides.length) return;
+      if (!scrollWrapper || !leftItems.length || !rightItems.length) return;
+
+      const totalSteps = 5;
 
       function updateSec2Slides() {
         const rect = scrollWrapper.getBoundingClientRect();
@@ -907,29 +937,44 @@
         
         if (wrapperHeight <= 0) return;
 
-        // Progress from 0 to 1 inside wrapper
         let progress = -rect.top / wrapperHeight;
         progress = Math.max(0, Math.min(1, progress));
 
-        const activeIndex = Math.min(
-          slides.length - 1,
-          Math.floor(progress * slides.length)
+        const currentStep = Math.min(
+          totalSteps - 1,
+          Math.floor(progress * totalSteps)
         );
 
-        slides.forEach((slide, idx) => {
-          if (idx < activeIndex) {
-            slide.classList.remove('active');
-            slide.classList.add('exit-up');
-          } else if (idx === activeIndex) {
-            slide.classList.remove('exit-up');
-            slide.classList.add('active');
+        // Staggered sequence: Left changes at steps 1, 3. Right changes at steps 2, 4.
+        const targetLeftIndex = Math.floor((currentStep + 1) / 2);
+        const targetRightIndex = Math.floor(currentStep / 2);
+
+        leftItems.forEach((item, idx) => {
+          if (idx < targetLeftIndex) {
+            item.classList.remove('active');
+            item.classList.add('exit-up');
+          } else if (idx === targetLeftIndex) {
+            item.classList.remove('exit-up');
+            item.classList.add('active');
           } else {
-            slide.classList.remove('active', 'exit-up');
+            item.classList.remove('active', 'exit-up');
+          }
+        });
+
+        rightItems.forEach((item, idx) => {
+          if (idx < targetRightIndex) {
+            item.classList.remove('active');
+            item.classList.add('exit-up');
+          } else if (idx === targetRightIndex) {
+            item.classList.remove('exit-up');
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active', 'exit-up');
           }
         });
 
         dots.forEach((dot, idx) => {
-          if (idx === activeIndex) {
+          if (idx === currentStep) {
             dot.classList.add('active');
           } else {
             dot.classList.remove('active');
@@ -937,11 +982,11 @@
         });
       }
 
-      // Allow clicking dots to scroll directly to slide
+      // Allow clicking dots to scroll directly to corresponding step
       dots.forEach((dot, idx) => {
         dot.addEventListener('click', () => {
           const wrapperHeight = scrollWrapper.offsetHeight - window.innerHeight;
-          const targetY = scrollWrapper.offsetTop + (idx / (slides.length - 1)) * wrapperHeight;
+          const targetY = scrollWrapper.offsetTop + (idx / (totalSteps - 1)) * wrapperHeight;
           window.scrollTo({ top: targetY, behavior: 'smooth' });
         });
       });
