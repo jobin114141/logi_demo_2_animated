@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <style>
     *,
@@ -53,62 +53,74 @@
       flex-direction: column;
     }
 
-    .hero-nav {
+    .hero::before {
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
+      height: 280px;
+      background: linear-gradient(180deg, rgba(13, 16, 20, 0.65) 0%, rgba(13, 16, 20, 0.3) 50%, rgba(13, 16, 20, 0) 100%);
+      z-index: 15;
+      pointer-events: none;
+    }
+
+    .hero-headline {
+      position: absolute;
+      top: 36px;
+      right: 48px;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .hero-headline h1 {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(80px, 13vw, 210px);
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      text-align: right;
+      white-space: nowrap;
+      text-shadow: 2px 4px 18px rgba(0, 0, 0, 0.18);
+      line-height: 0.88;
+      margin-bottom: 20px;
+    }
+
+    .hero-nav {
+      position: relative;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      padding: 18px 36px;
+      padding: 0;
       gap: 28px;
       z-index: 30;
+      margin-top: 10px;
     }
 
     .hero-nav a {
-      color: var(--dark);
+      color: #1a1e22;
       text-decoration: none;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 12px;
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      opacity: 0.75;
-      transition: opacity 0.2s;
+      opacity: 0.95;
+      transition: color 0.2s, opacity 0.2s;
     }
 
     .hero-nav a:hover {
+      color: var(--orange);
       opacity: 1;
     }
 
     .hero-nav-divider {
       width: 1px;
       height: 14px;
-      background: var(--dark);
-      opacity: 0.25;
-    }
-
-    .hero-headline {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 56px 0 0 0;
-      z-index: 20;
-      line-height: 0.88;
-      overflow: hidden;
-    }
-
-    .hero-headline h1 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: clamp(80px, 13vw, 210px);
-      color: var(--white);
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      text-align: right;
-      white-space: nowrap;
-      text-shadow: 2px 4px 18px rgba(0, 0, 0, 0.18);
+      background: rgba(26, 30, 34, 0.35);
     }
 
     .hero-crane {
@@ -159,7 +171,7 @@
 
     .hero-badge-text {
       position: absolute;
-      bottom: 80px;
+      bottom: 20px;
       right: 48px;
       z-index: 25;
       text-align: right;
@@ -167,8 +179,8 @@
     }
 
     .hero-badge-text .badge-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
       font-size: clamp(14px, 2vw, 22px);
       color: var(--orange);
       text-transform: uppercase;
@@ -403,8 +415,8 @@
     }
 
     .sec2-big-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
       font-size: clamp(36px, 4.5vw, 68px);
       color: var(--white);
       text-transform: uppercase;
@@ -419,8 +431,8 @@
     }
 
     .sec2-heading {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
       font-size: clamp(24px, 2.5vw, 36px);
       color: var(--dark);
       text-transform: uppercase;
@@ -474,8 +486,8 @@
     }
 
     .why-stat-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
       font-size: clamp(34px, 4vw, 48px);
       color: var(--dark);
       line-height: 1;
@@ -483,8 +495,8 @@
     }
 
     .why-stat-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
       font-size: clamp(11px, 1.3vw, 14px);
       color: var(--dark);
       text-transform: uppercase;
@@ -504,8 +516,8 @@
 
     .why-bg-word {
       position: absolute;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
       font-size: clamp(110px, 16vw, 220px);
       text-transform: uppercase;
       color: var(--white);
@@ -546,8 +558,8 @@
     .bottom-tag {
       padding: 20px 36px;
       border-right: 1px solid rgba(0, 0, 0, 0.07);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
       font-size: clamp(22px, 4vw, 48px);
       text-transform: uppercase;
       color: var(--dark);
@@ -608,8 +620,8 @@
     }
 
     .footer-brand {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
       font-size: 14px;
       color: #fff;
       letter-spacing: 0.06em;
@@ -690,18 +702,17 @@
 
   <!-- HERO -->
   <section class="hero">
-    <nav class="hero-nav">
-      <a href="#">Home</a>
-      <div class="hero-nav-divider"></div>
-      <a href="#services">Services</a>
-      <div class="hero-nav-divider"></div>
-      <a href="#why">Why Us</a>
-      <div class="hero-nav-divider"></div>
-      <a href="#contact">Contact</a>
-    </nav>
-
     <div class="hero-headline">
       <h1>INFLUENCE FOR<br>TRADING</h1>
+      <nav class="hero-nav">
+        <a href="#">Home</a>
+        <div class="hero-nav-divider"></div>
+        <a href="#services">Services</a>
+        <div class="hero-nav-divider"></div>
+        <a href="#why">Why Us</a>
+        <div class="hero-nav-divider"></div>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
 
     <div class="hero-crane">
