@@ -428,23 +428,84 @@
       line-height: 1.65;
     }
 
-    .why-slide-word {
+    .sec2-left-item[data-left-index="3"],
+    .sec2-right-item[data-right-index="2"] {
+      justify-content: flex-start;
+      padding-top: 30px;
+    }
+
+    .why-slide-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      max-width: 320px;
+      z-index: 10;
+      position: relative;
+    }
+
+    .why-stat-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2px;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .why-stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(48px, 5.5vw, 64px);
+      color: var(--dark);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .why-stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(13px, 1.6vw, 16px);
+      color: var(--dark);
+      text-transform: uppercase;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+
+    .why-slide-body {
+      font-family: 'Barlow', sans-serif;
+      font-size: 13px;
+      color: var(--dark);
+      opacity: 0.85;
+      line-height: 1.55;
+      text-align: left;
+    }
+
+    .why-bg-word {
+      position: absolute;
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 900;
-      font-size: clamp(80px, 14vw, 220px);
+      font-size: clamp(140px, 22vw, 300px);
       text-transform: uppercase;
       color: var(--white);
-      line-height: 0.85;
+      line-height: 0.8;
       letter-spacing: -0.03em;
-      text-shadow: 2px 4px 24px rgba(0, 0, 0, 0.15);
+      text-shadow: 2px 4px 24px rgba(0, 0, 0, 0.12);
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.95;
     }
 
-    .why-slide-word.why-left-word {
-      margin-top: 240px;
+    .why-bg-left {
+      top: -30px;
+      left: 10px;
     }
 
-    .why-slide-word.why-right-word {
-      margin-top: 100px;
+    .why-bg-right {
+      top: -50px;
+      right: 0px;
     }
 
 
@@ -715,9 +776,32 @@
             </div>
           </div>
 
-          <!-- Left Item 4 (Step 4: WHY) -->
+          <!-- Left Item 4 (Step 4: WHY + Stats + Text) -->
           <div class="sec2-left-item" data-left-index="3">
-            <div class="why-slide-word why-left-word">WHY</div>
+            <div class="why-slide-content">
+              <div class="why-stat-box">
+                <div class="why-stat-num">5+</div>
+                <div class="why-stat-label">YEARS ON THE<br>MARKET</div>
+                <svg class="laurel-wreath" viewBox="0 0 120 70" width="90" height="52">
+                  <g fill="#162a45" opacity="0.9">
+                    <path d="M50,62 C32,54 22,36 26,14 C27,10 28,6 30,2 C30,8 28,14 27,18 C24,34 32,49 48,56 Z"/>
+                    <path d="M22,54 C14,48 10,40 14,33 C21,39 24,47 22,54 Z"/>
+                    <path d="M17,40 C9,34 7,24 13,18 C19,24 20,33 17,40 Z"/>
+                    <path d="M19,25 C13,18 13,9 20,4 C24,11 23,20 19,25 Z"/>
+                    <path d="M28,12 C24,5 27,0 33,0 C34,6 32,13 28,12 Z"/>
+                    <path d="M70,62 C88,54 98,36 94,14 C93,10 92,6 90,2 C90,8 92,14 93,18 C96,34 88,49 72,56 Z"/>
+                    <path d="M98,54 C106,48 110,40 106,33 C99,39 96,47 98,54 Z"/>
+                    <path d="M103,40 C111,34 113,24 107,18 C101,24 100,33 103,40 Z"/>
+                    <path d="M101,25 C107,18 107,9 100,4 C96,11 97,20 101,25 Z"/>
+                    <path d="M92,12 C96,5 93,0 87,0 C86,6 88,13 92,12 Z"/>
+                  </g>
+                </svg>
+              </div>
+              <p class="why-slide-body">
+                Our team is dedicated to building long-lasting relationships with our clients. We believe in a partnership approach, working closely with you to understand your goals and challenges. This allows us to offer more than just products—we provide insights, advice, and a level of service that sets us apart in the industry.
+              </p>
+            </div>
+            <div class="why-bg-word why-bg-left">WHY</div>
           </div>
 
         </div>
@@ -749,9 +833,32 @@
             </div>
           </div>
 
-          <!-- Right Item 3 (Step 4: US?) -->
+          <!-- Right Item 3 (Step 4: US? + Stats + Text) -->
           <div class="sec2-right-item" data-right-index="2">
-            <div class="why-slide-word why-right-word">US?</div>
+            <div class="why-slide-content">
+              <div class="why-stat-box">
+                <div class="why-stat-num">240+</div>
+                <div class="why-stat-label">SUCCESSFUL<br>DELIVERIES</div>
+                <svg class="laurel-wreath" viewBox="0 0 120 70" width="90" height="52">
+                  <g fill="#162a45" opacity="0.9">
+                    <path d="M50,62 C32,54 22,36 26,14 C27,10 28,6 30,2 C30,8 28,14 27,18 C24,34 32,49 48,56 Z"/>
+                    <path d="M22,54 C14,48 10,40 14,33 C21,39 24,47 22,54 Z"/>
+                    <path d="M17,40 C9,34 7,24 13,18 C19,24 20,33 17,40 Z"/>
+                    <path d="M19,25 C13,18 13,9 20,4 C24,11 23,20 19,25 Z"/>
+                    <path d="M28,12 C24,5 27,0 33,0 C34,6 32,13 28,12 Z"/>
+                    <path d="M70,62 C88,54 98,36 94,14 C93,10 92,6 90,2 C90,8 92,14 93,18 C96,34 88,49 72,56 Z"/>
+                    <path d="M98,54 C106,48 110,40 106,33 C99,39 96,47 98,54 Z"/>
+                    <path d="M103,40 C111,34 113,24 107,18 C101,24 100,33 103,40 Z"/>
+                    <path d="M101,25 C107,18 107,9 100,4 C96,11 97,20 101,25 Z"/>
+                    <path d="M92,12 C96,5 93,0 87,0 C86,6 88,13 92,12 Z"/>
+                  </g>
+                </svg>
+              </div>
+              <p class="why-slide-body">
+                Our team is dedicated to building long-lasting relationships with our clients. We believe in a partnership approach, working closely with you to understand your goals and challenges. This allows us to offer more than just products—we provide insights, advice, and a level of service that sets us apart in the industry.
+              </p>
+            </div>
+            <div class="why-bg-word why-bg-right">US?</div>
           </div>
 
         </div>
