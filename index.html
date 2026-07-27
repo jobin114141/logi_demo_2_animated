@@ -223,7 +223,7 @@
     /* STICKY SCROLL WRAPPER FOR SECTION 2 */
     .sec2-scroll-wrapper {
       position: relative;
-      height: 220vh;
+      height: 300vh;
     }
 
     .section-2 {
@@ -751,11 +751,12 @@
         </div>
       </div>
 
-      <!-- Slide Indicator Dots (3 steps: 0, 1, 2) -->
+      <!-- Slide Indicator Dots (4 steps: 0, 1, 2, 3) -->
       <div class="sec2-slide-dots">
         <span class="dot active" data-step="0"></span>
         <span class="dot" data-step="1"></span>
         <span class="dot" data-step="2"></span>
+        <span class="dot" data-step="3"></span>
       </div>
 
       <!-- Content Grid Overlay with Independent Left & Right Items -->
@@ -773,7 +774,8 @@
             <div class="sec2-block">
               <h2 class="sec2-heading">TAILORED SOLUTIONS<br>FOR EVERY NEED</h2>
               <p class="sec2-body">
-                We understand that in a fast-paced world, businesses need reliable suppliers who can offer not just products, but solutions.
+                We understand that in a fast-paced world, businesses need reliable suppliers who can offer not just
+                products, but solutions.
               </p>
             </div>
           </div>
@@ -787,7 +789,23 @@
             <div class="sec2-block">
               <h2 class="sec2-heading">GLOBAL NETWORK<br>&amp; BORDERLESS REACH</h2>
               <p class="sec2-body">
-                Connecting markets across continents with seamless freight solutions, customs clearance, and dedicated logistics pipelines.
+                Connecting markets across continents with seamless freight solutions, customs clearance, and dedicated
+                logistics pipelines.
+              </p>
+            </div>
+          </div>
+
+          <!-- Left Item 3 -->
+          <div class="sec2-left-item" data-left-index="2">
+            <div class="sec2-big-title">
+              SUSTAINABLE EFFICIENCY<br>FOR MODERN<br>COMMERCE
+            </div>
+
+            <div class="sec2-block">
+              <h2 class="sec2-heading">SCALABLE INFRASTRUCTURE<br>FOR ENTERPRISES</h2>
+              <p class="sec2-body">
+                Whether managing bulk raw material imports or high-tech equipment exports, we provide flexible logistics
+                solutions built to scale.
               </p>
             </div>
           </div>
@@ -802,7 +820,10 @@
             <div class="sec2-block">
               <h2 class="sec2-heading">EXPERIENCE AND<br>EXPERTISE</h2>
               <p class="sec2-body">
-                At Influence Pro Trading, we are more than just a wholesale distributor; we are a strategic partner committed to fueling your business's growth. With years of experience in the industry, we have honed our expertise to offer a vast array of products, including computers, electronics, and agricultural supplies.
+                At Influence Pro Trading, we are more than just a wholesale distributor; we are a strategic partner
+                committed to fueling your business's growth. With years of experience in the industry, we have honed our
+                expertise to offer a vast array of products, including computers, electronics, and agricultural
+                supplies.
               </p>
             </div>
           </div>
@@ -812,7 +833,8 @@
             <div class="sec2-block">
               <h2 class="sec2-heading">UNMATCHED RELIABILITY<br>&amp; CARGO SAFETY</h2>
               <p class="sec2-body">
-                Our end-to-end supply chain management guarantees precision tracking, secure freighting, and on-time port deliveries around the clock across all trade lanes.
+                Our end-to-end supply chain management guarantees precision tracking, secure freighting, and on-time
+                port deliveries around the clock across all trade lanes.
               </p>
             </div>
           </div>
@@ -827,14 +849,9 @@
   <section class="why-section" id="why">
     <div class="why-text">
       <div class="why-word">WHY</div>
-      <div class="why-center">
-        <div class="why-container-wrap">
-          <img src="images/container.png" alt="Shipping container" style="width:100%;height:auto;display:block;" />
-        </div>
-      </div>
-      <div class="why-word">CHOOSE</div>
+      <div class="why-word">US?</div>
     </div>
-    <div class="why-us">US?</div>
+    <!-- <div class="why-us">US?</div> -->
 
     <!-- Badges -->
     <div class="badges-row">
@@ -903,12 +920,12 @@
 
       if (!scrollWrapper || !leftItems.length || !rightItems.length) return;
 
-      const totalSteps = 3;
+      const totalSteps = 4;
 
       function updateSec2Slides() {
         const rect = scrollWrapper.getBoundingClientRect();
         const wrapperHeight = scrollWrapper.offsetHeight - window.innerHeight;
-        
+
         if (wrapperHeight <= 0) return;
 
         let progress = -rect.top / wrapperHeight;
