@@ -223,23 +223,26 @@
     /* CONTAINER HERO SECTION */
     .container-hero-section {
       width: 100%;
+      min-height: 720px;
       background: var(--sky);
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 130px 20px 80px 20px;
+      padding: 130px 48px 80px 48px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.08);
       position: relative;
+      overflow: hidden;
     }
 
     .centered-container-img {
       position: relative;
-      max-width: 1000px;
+      max-width: 620px;
       width: 100%;
       display: flex;
       justify-content: center;
       animation: swing 4s ease-in-out infinite;
       transform-origin: 50% -155px;
+      z-index: 10;
     }
 
     /* Crane Steel Cable / Rope Line */
@@ -260,7 +263,67 @@
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
+      filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.22));
+    }
+
+    /* PARALLAX AXIS SCROLL TEXT COLUMNS */
+    .parallax-left-col {
+      position: absolute;
+      left: 48px;
+      top: 40px;
+      bottom: 40px;
+      width: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 12;
+      pointer-events: none;
+      transition: transform 0.1s linear;
+    }
+
+    .parallax-right-col {
+      position: absolute;
+      right: 48px;
+      top: 32%;
+      width: 340px;
+      z-index: 12;
+      pointer-events: none;
+      transition: transform 0.1s linear;
+    }
+
+    .parallax-headline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(34px, 3.8vw, 62px);
+      line-height: 0.92;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      text-shadow: 2px 4px 16px rgba(0, 0, 0, 0.16);
+      pointer-events: auto;
+    }
+
+    .parallax-card {
+      pointer-events: auto;
+    }
+
+    .parallax-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(18px, 1.8vw, 26px);
+      line-height: 1.05;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+
+    .parallax-card p {
+      font-family: 'Barlow', sans-serif;
+      font-size: 11.5px;
+      line-height: 1.6;
+      color: var(--dark);
+      opacity: 0.72;
     }
 
     /* CONTENT GRID */
@@ -615,11 +678,32 @@
     </div>
   </section>
 
-  <!-- CONTAINER SECTION -->
+  <!-- CONTAINER SECTION WITH PARALLAX AXIS SCROLL TEXT -->
   <section class="container-hero-section">
+
+    <!-- Left Column: Top Headline & Bottom Card -->
+    <div class="parallax-left-col">
+      <h2 class="parallax-headline">EMPOWERING YOUR<br>GROWTH THROUGH<br>PARTNERSHIP</h2>
+
+      <div class="parallax-card">
+        <h3>TAILORED SOLUTIONS<br>FOR EVERY NEED</h3>
+        <p>We understand that in a fast-paced world, businesses need reliable suppliers who can offer not just products, but solutions. That's why we focus on providing tailored services that align with your specific needs, whether you're looking to equip an entire office, manage a large-scale agricultural project, or stay ahead in the tech industry. Our global network ensures that we can source and deliver the best products from around the world, backed by our commitment to quality and customer satisfaction.</p>
+      </div>
+    </div>
+
+    <!-- Center Hanging Container -->
     <div class="centered-container-img">
       <img src="images/container.png" alt="Shipping container" />
     </div>
+
+    <!-- Right Column: Experience and Expertise Card -->
+    <div class="parallax-right-col">
+      <div class="parallax-card">
+        <h3>EXPERIENCE AND<br>EXPERTISE</h3>
+        <p>At Influence Pro Trading, we are more than just a wholesale distributor; we are a strategic partner committed to fueling your business's growth. With years of experience in the industry, we have honed our expertise to offer a vast array of products, including computers, electronics, and agricultural supplies, ensuring that we cater to a diverse range of industries.</p>
+      </div>
+    </div>
+
   </section>
 
   <!-- TWO-COLUMN CONTENT -->
@@ -710,6 +794,30 @@
     </div>
     <div>&copy; 2026 Influence For Trading. All rights reserved.</div>
   </footer>
+
+  <!-- PARALLAX AXIS SCROLL SCRIPT -->
+  <script>
+    window.addEventListener('scroll', function () {
+      if (window.innerWidth <= 768) return;
+      const section = document.querySelector('.container-hero-section');
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (rect.top < windowHeight && rect.bottom > 0) {
+        const scrollDistance = (windowHeight - rect.top) / (windowHeight + rect.height);
+        const leftY = (scrollDistance - 0.5) * -110;
+        const rightY = (scrollDistance - 0.5) * 130;
+
+        const leftCol = document.querySelector('.parallax-left-col');
+        const rightCol = document.querySelector('.parallax-right-col');
+
+        if (leftCol) leftCol.style.transform = `translateY(${leftY}px)`;
+        if (rightCol) rightCol.style.transform = `translateY(${rightY}px)`;
+      }
+    });
+  </script>
 
 </body>
 
