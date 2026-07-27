@@ -220,11 +220,17 @@
       background: rgba(255, 255, 255, 0.32);
     }
 
-    /* SECTION 2: CONTAINER & CONTENT */
-    .section-2 {
+    /* STICKY SCROLL WRAPPER FOR SECTION 2 */
+    .sec2-scroll-wrapper {
       position: relative;
+      height: 280vh;
+    }
+
+    .section-2 {
+      position: sticky;
+      top: 0;
       width: 100%;
-      min-height: 100vh;
+      height: 100vh;
       background: var(--sky);
       padding: 60px 48px;
       overflow: hidden;
@@ -232,6 +238,70 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .sec2-grid {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1400px;
+      height: 85vh;
+    }
+
+    .sec2-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(100%);
+      transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.75s ease;
+      pointer-events: none;
+    }
+
+    .sec2-slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .sec2-slide.exit-up {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+
+    .sec2-slide-dots {
+      position: absolute;
+      top: 24px;
+      right: 48px;
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .sec2-slide-dots .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--dark);
+      opacity: 0.25;
+      transition: opacity 0.3s, transform 0.3s, background 0.3s;
+      cursor: pointer;
+    }
+
+    .sec2-slide-dots .dot.active {
+      opacity: 1;
+      background: var(--orange);
+      transform: scale(1.35);
     }
 
     .sec2-container-wrap {
@@ -307,8 +377,8 @@
 
     .sec2-big-title {
       font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: clamp(48px, 6vw, 96px);
+      font-weight: 700;
+      font-size: clamp(36px, 4.5vw, 68px);
       color: var(--white);
       text-transform: uppercase;
       line-height: 0.92;
@@ -653,42 +723,104 @@
     </div>
   </section>
 
-  <!-- SECTION 2: CONTAINER & CONTENT -->
-  <section class="section-2" id="services">
-    <!-- Centered Container Image Layer (Size Preserved) -->
-    <div class="sec2-container-wrap">
-      <div class="centered-container-img">
-        <img src="images/container.png" alt="Shipping container suspended by crane" />
-      </div>
-    </div>
-
-    <!-- Content Grid Overlay -->
-    <div class="sec2-grid">
-      <!-- Left Column: Big Headline & Tailored Solutions -->
-      <div class="sec2-left-col">
-        <div class="sec2-big-title">
-          EMPOWERING YOUR<br>GROWTH THROUGH<br>PARTNERSHIP
-        </div>
-
-        <div class="sec2-block">
-          <h2 class="sec2-heading">TAILORED SOLUTIONS<br>FOR EVERY NEED</h2>
-          <p class="sec2-body">
-            We understand that in a fast-paced world, businesses need reliable suppliers who can offer not just products, but solutions. That's why we focus on providing tailored services that align with your specific needs, whether you're looking to equip an entire office, manage a large-scale agricultural project, or stay ahead in the tech industry. Our global network ensures that we can source and deliver the best products from around the world, backed by our commitment to quality and customer satisfaction.
-          </p>
+  <!-- SECTION 2: STICKY SCROLL CONTAINER -->
+  <div class="sec2-scroll-wrapper" id="services">
+    <section class="section-2">
+      <!-- Centered Container Image Layer (Size & Position Preserved) -->
+      <div class="sec2-container-wrap">
+        <div class="centered-container-img">
+          <img src="images/container.png" alt="Shipping container suspended by crane" />
         </div>
       </div>
 
-      <!-- Right Column: Experience and Expertise -->
-      <div class="sec2-right-col">
-        <div class="sec2-block">
-          <h2 class="sec2-heading">EXPERIENCE AND<br>EXPERTISE</h2>
-          <p class="sec2-body">
-            At Influence Pro Trading, we are more than just a wholesale distributor; we are a strategic partner committed to fueling your business's growth. With years of experience in the industry, we have honed our expertise to offer a vast array of products, including computers, electronics, and agricultural supplies, ensuring that we cater to a diverse range of industries.
-          </p>
-        </div>
+      <!-- Slide Indicator Dots -->
+      <div class="sec2-slide-dots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
       </div>
-    </div>
-  </section>
+
+      <!-- Content Grid Overlay with Scroll Slides -->
+      <div class="sec2-grid">
+
+        <!-- Slide 1 (Default) -->
+        <div class="sec2-slide active" data-slide-index="0">
+          <div class="sec2-left-col">
+            <div class="sec2-big-title">
+              EMPOWERING YOUR<br>GROWTH THROUGH<br>PARTNERSHIP
+            </div>
+
+            <div class="sec2-block">
+              <h2 class="sec2-heading">TAILORED SOLUTIONS<br>FOR EVERY NEED</h2>
+              <p class="sec2-body">
+                We understand that in a fast-paced world, businesses need reliable suppliers who can offer not just products, but solutions.
+              </p>
+            </div>
+          </div>
+
+          <div class="sec2-right-col">
+            <div class="sec2-block">
+              <h2 class="sec2-heading">EXPERIENCE AND<br>EXPERTISE</h2>
+              <p class="sec2-body">
+                At Influence Pro Trading, we are more than just a wholesale distributor; we are a strategic partner committed to fueling your business's growth. With years of experience in the industry, we have honed our expertise to offer a vast array of products, including computers, electronics, and agricultural supplies, ensuring that we cater to a diverse range of industries.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="sec2-slide" data-slide-index="1">
+          <div class="sec2-left-col">
+            <div class="sec2-big-title">
+              INNOVATION IN<br>GLOBAL LOGISTICS<br>&amp; TRADING
+            </div>
+
+            <div class="sec2-block">
+              <h2 class="sec2-heading">GLOBAL NETWORK<br>&amp; BORDERLESS REACH</h2>
+              <p class="sec2-body">
+                Connecting markets across continents with seamless freight solutions, customs clearance, and dedicated logistics pipelines tailored to your operations.
+              </p>
+            </div>
+          </div>
+
+          <div class="sec2-right-col">
+            <div class="sec2-block">
+              <h2 class="sec2-heading">UNMATCHED RELIABILITY<br>&amp; CARGO SAFETY</h2>
+              <p class="sec2-body">
+                Our end-to-end supply chain management guarantees precision tracking, secure freighting, and on-time port deliveries around the clock.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="sec2-slide" data-slide-index="2">
+          <div class="sec2-left-col">
+            <div class="sec2-big-title">
+              SUSTAINABLE EFFICIENCY<br>FOR MODERN<br>COMMERCE
+            </div>
+
+            <div class="sec2-block">
+              <h2 class="sec2-heading">SCALABLE INFRASTRUCTURE<br>FOR ENTERPRISES</h2>
+              <p class="sec2-body">
+                Whether managing bulk raw material imports or high-tech equipment exports, we provide flexible logistics solutions built to scale.
+              </p>
+            </div>
+          </div>
+
+          <div class="sec2-right-col">
+            <div class="sec2-block">
+              <h2 class="sec2-heading">DEDICATED 24/7<br>PORT OPERATIONS</h2>
+              <p class="sec2-body">
+                Our experienced on-site teams monitor customs, bonded warehousing, and maritime transit 24 hours a day to eliminate costly port delays.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
 
   <!-- WHY CHOOSE US -->
   <section class="why-section" id="why">
@@ -761,6 +893,64 @@
     <div>&copy; 2026 Influence For Trading. All rights reserved.</div>
   </footer>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const scrollWrapper = document.querySelector('.sec2-scroll-wrapper');
+      const slides = document.querySelectorAll('.sec2-slide');
+      const dots = document.querySelectorAll('.sec2-slide-dots .dot');
+
+      if (!scrollWrapper || !slides.length) return;
+
+      function updateSec2Slides() {
+        const rect = scrollWrapper.getBoundingClientRect();
+        const wrapperHeight = scrollWrapper.offsetHeight - window.innerHeight;
+        
+        if (wrapperHeight <= 0) return;
+
+        // Progress from 0 to 1 inside wrapper
+        let progress = -rect.top / wrapperHeight;
+        progress = Math.max(0, Math.min(1, progress));
+
+        const activeIndex = Math.min(
+          slides.length - 1,
+          Math.floor(progress * slides.length)
+        );
+
+        slides.forEach((slide, idx) => {
+          if (idx < activeIndex) {
+            slide.classList.remove('active');
+            slide.classList.add('exit-up');
+          } else if (idx === activeIndex) {
+            slide.classList.remove('exit-up');
+            slide.classList.add('active');
+          } else {
+            slide.classList.remove('active', 'exit-up');
+          }
+        });
+
+        dots.forEach((dot, idx) => {
+          if (idx === activeIndex) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
+      // Allow clicking dots to scroll directly to slide
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          const wrapperHeight = scrollWrapper.offsetHeight - window.innerHeight;
+          const targetY = scrollWrapper.offsetTop + (idx / (slides.length - 1)) * wrapperHeight;
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+        });
+      });
+
+      window.addEventListener('scroll', updateSec2Slides, { passive: true });
+      window.addEventListener('resize', updateSec2Slides, { passive: true });
+      updateSec2Slides();
+    });
+  </script>
 </body>
 
 </html>
