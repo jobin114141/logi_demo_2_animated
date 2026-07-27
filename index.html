@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Influence For Trading | Industrial Freight Solutions</title>
+  <meta name="description"
+    content="We are the best in our field. Influence For Trading — premium industrial freight and logistics solutions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --sky: #b8c8d4;
+      --sky-mid: #a0b4c2;
+      --sky-top: #8fa8ba;
+      --dark: #1a1e22;
+      --darker: #0d1014;
+      --orange: #e05a20;
+      --white: #f5f5f0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--sky);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #6e8fa8 0%, #8fafc4 18%, #a4bfce 35%, #b8cdd8 55%, #c8d4de 100%);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 18px 36px;
+      gap: 28px;
+      z-index: 30;
+    }
+
+    .hero-nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+
+    .hero-nav a:hover {
+      opacity: 1;
+    }
+
+    .hero-nav-divider {
+      width: 1px;
+      height: 14px;
+      background: var(--dark);
+      opacity: 0.25;
+    }
+
+    .hero-headline {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 56px 0 0 0;
+      z-index: 20;
+      line-height: 0.88;
+      overflow: hidden;
+    }
+
+    .hero-headline h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(80px, 13vw, 210px);
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      text-align: right;
+      white-space: nowrap;
+      text-shadow: 2px 4px 18px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero-crane {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      pointer-events: none;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .hero-crane img {
+      height: 100%;
+      max-height: 100vh;
+      width: auto;
+      max-width: 85%;
+      object-fit: contain;
+      object-position: top left;
+      display: block;
+    }
+
+    .hero-scroll-btn {
+      position: absolute;
+      bottom: 120px;
+      left: 48px;
+      z-index: 25;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--orange);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 22px;
+      box-shadow: 0 6px 24px rgba(224, 90, 32, 0.38);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .hero-scroll-btn:hover {
+      transform: translateY(4px);
+      box-shadow: 0 2px 12px rgba(224, 90, 32, 0.28);
+    }
+
+    .hero-badge-text {
+      position: absolute;
+      bottom: 80px;
+      right: 48px;
+      z-index: 25;
+      text-align: right;
+      max-width: 320px;
+    }
+
+    .hero-badge-text .badge-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(14px, 2vw, 22px);
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .hero-badge-text p {
+      font-size: 11px;
+      color: var(--dark);
+      opacity: 0.65;
+      line-height: 1.6;
+      max-width: 220px;
+      margin-left: auto;
+    }
+
+    /* INFO BAR */
+    .info-bar {
+      background: var(--sky-mid);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 0;
+      position: relative;
+      z-index: 5;
+    }
+
+    .info-bar-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      background: rgba(255, 255, 255, 0.18);
+      border: none;
+      border-right: 1px solid rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--dark);
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+
+    .info-bar-btn:hover {
+      background: rgba(255, 255, 255, 0.32);
+    }
+
+    /* CONTAINER HERO SECTION */
+    .container-hero-section {
+      width: 100%;
+      background: var(--sky);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 130px 20px 80px 20px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .centered-container-img {
+      position: relative;
+      max-width: 1000px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      animation: swing 4s ease-in-out infinite;
+      transform-origin: 50% -155px;
+    }
+
+    /* Crane Steel Cable / Rope Line */
+    .centered-container-img::before {
+      content: '';
+      position: absolute;
+      top: -155px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 157px;
+      background: linear-gradient(90deg, #15181c 0%, #4a525d 50%, #15181c 100%);
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+      z-index: 5;
+    }
+
+    .centered-container-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
+    }
+
+    /* CONTENT GRID */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--sky);
+    }
+
+    .content-col {
+      padding: 56px 48px;
+      border-right: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .content-col:last-child {
+      border-right: none;
+    }
+
+    .col-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dark);
+      opacity: 0.45;
+      margin-bottom: 20px;
+    }
+
+    .col-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 52px);
+      text-transform: uppercase;
+      color: var(--dark);
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+
+    .col-body {
+      font-size: 13px;
+      color: var(--dark);
+      opacity: 0.65;
+      line-height: 1.7;
+      max-width: 360px;
+    }
+
+    .col-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--orange);
+      margin: 20px 0;
+    }
+
+    /* WHY CHOOSE US */
+    .why-section {
+      position: relative;
+      background: linear-gradient(180deg, #b8c8d4 0%, #a8bad0 40%, #9ab0c8 100%);
+      padding: 80px 0 0 0;
+      overflow: hidden;
+    }
+
+    .why-text {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 0 48px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .why-word {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(72px, 14vw, 220px);
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 0.88;
+      letter-spacing: -0.03em;
+      text-shadow: 2px 4px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .why-center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 0;
+      z-index: 10;
+      position: relative;
+    }
+
+    .why-us {
+      text-align: center;
+      padding: 0 48px;
+      position: relative;
+      z-index: 5;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(72px, 14vw, 220px);
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 0.88;
+      letter-spacing: -0.03em;
+      text-shadow: 2px 4px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .why-container-wrap {
+      width: clamp(120px, 18vw, 260px);
+      filter: drop-shadow(0 18px 48px rgba(0, 0, 0, 0.28));
+      animation: swing 4s ease-in-out infinite;
+      transform-origin: top center;
+    }
+
+    @keyframes swing {
+      0% {
+        transform: rotate(-1.5deg);
+      }
+
+      50% {
+        transform: rotate(1.5deg);
+      }
+
+      100% {
+        transform: rotate(-1.5deg);
+      }
+    }
+
+    /* BADGES */
+    .badges-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 80px 50px;
+      gap: 16px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .badge-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2.5px solid rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 22px;
+      opacity: 0.85;
+    }
+
+    .badge-label-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0.75;
+      text-align: center;
+    }
+
+    /* BOTTOM */
+    .bottom-section {
+      position: relative;
+      background: var(--sky);
+      overflow: hidden;
+    }
+
+    .bottom-tag-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .bottom-tag {
+      padding: 20px 36px;
+      border-right: 1px solid rgba(0, 0, 0, 0.07);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(22px, 4vw, 48px);
+      text-transform: uppercase;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+      line-height: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .bottom-tag:last-child {
+      border-right: none;
+    }
+
+    .bottom-tag span.tag-sub {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.45;
+    }
+
+    .bottom-containers-img {
+      width: 100%;
+      display: block;
+    }
+
+    .bottom-containers-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--darker);
+      color: rgba(255, 255, 255, 0.55);
+      padding: 36px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .site-footer a {
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .site-footer a:hover {
+      color: var(--orange);
+    }
+
+    .footer-brand {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: #fff;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .hero-headline h1 {
+        font-size: clamp(52px, 18vw, 120px);
+      }
+
+      .hero-crane {
+        width: 100%;
+      }
+
+      .hero-badge-text {
+        right: 20px;
+        bottom: 60px;
+      }
+
+      .hero-scroll-btn {
+        left: 20px;
+        bottom: 80px;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .content-col {
+        padding: 36px 24px;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .why-word {
+        font-size: clamp(48px, 16vw, 110px);
+      }
+
+      .why-us {
+        font-size: clamp(48px, 16vw, 110px);
+      }
+
+      .badges-row {
+        padding: 24px 24px 40px;
+        flex-wrap: wrap;
+      }
+
+      .bottom-tag-row {
+        grid-template-columns: 1fr;
+      }
+
+      .bottom-tag {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      }
+
+      .why-text {
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <nav class="hero-nav">
+      <a href="#">Home</a>
+      <div class="hero-nav-divider"></div>
+      <a href="#services">Services</a>
+      <div class="hero-nav-divider"></div>
+      <a href="#why">Why Us</a>
+      <div class="hero-nav-divider"></div>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="hero-headline">
+      <h1>INFLUENCE FOR<br>TRADING</h1>
+    </div>
+
+    <div class="hero-crane">
+      <img src="images/crain.png" alt="Industrial port crane" />
+    </div>
+
+    <button class="hero-scroll-btn" onclick="document.querySelector('.container-hero-section').scrollIntoView({behavior:'smooth'})" aria-label="Scroll down">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19" />
+        <polyline points="19 12 12 19 5 12" />
+      </svg>
+    </button>
+
+    <div class="hero-badge-text">
+      <div class="badge-label">WE ARE THE BEST<br>IN OUR FIELD</div>
+      <p>A trusted name in industrial freight, port logistics, and global trading solutions — engineered for modern
+        commerce.</p>
+    </div>
+  </section>
+
+  <!-- CONTAINER SECTION -->
+  <section class="container-hero-section">
+    <div class="centered-container-img">
+      <img src="images/container.png" alt="Shipping container" />
+    </div>
+  </section>
+
+  <!-- TWO-COLUMN CONTENT -->
+  <div class="content-grid">
+    <div class="content-col">
+      <div class="col-label">Experience &amp; Expertise</div>
+      <h2 class="col-heading">Industry<br>Proven</h2>
+      <div class="col-divider"></div>
+      <p class="col-body">With over two decades of hands-on port operations, we combine deep industrial knowledge with
+        modern logistics technology to deliver results that others cannot match.</p>
+    </div>
+    <div class="content-col">
+      <div class="col-label">Navigate To Your Border</div>
+      <h2 class="col-heading">Global<br>Reach</h2>
+      <div class="col-divider"></div>
+      <p class="col-body">From the Arabian Gulf to European ports, our freight network spans 60+ countries. We handle
+        customs clearance, bonded warehousing, and last-mile delivery — all from a single point of contact.</p>
+    </div>
+  </div>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-section" id="why">
+    <div class="why-text">
+      <div class="why-word">WHY</div>
+      <div class="why-center">
+        <div class="why-container-wrap">
+          <img src="images/container.png" alt="Shipping container" style="width:100%;height:auto;display:block;" />
+        </div>
+      </div>
+      <div class="why-word">CHOOSE</div>
+    </div>
+    <div class="why-us">US?</div>
+
+    <!-- Badges -->
+    <div class="badges-row">
+      <div class="badge-item">
+        <div class="badge-icon">🏆</div>
+        <div class="badge-label-text">Award<br>Winning</div>
+      </div>
+      <div class="badge-item">
+        <div class="badge-icon">🌍</div>
+        <div class="badge-label-text">60+<br>Countries</div>
+      </div>
+      <div class="badge-item">
+        <div class="badge-icon">⚡</div>
+        <div class="badge-label-text">Fast<br>Delivery</div>
+      </div>
+      <div class="badge-item">
+        <div class="badge-icon">🔒</div>
+        <div class="badge-label-text">Secure<br>Cargo</div>
+      </div>
+      <div class="badge-item">
+        <div class="badge-icon">📋</div>
+        <div class="badge-label-text">ISO<br>Certified</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM TAG ROW + CONTAINERS IMAGE -->
+  <section class="bottom-section" id="services">
+    <div class="bottom-tag-row">
+      <div class="bottom-tag">
+        <span class="tag-sub">Expertise</span>
+        Freight<br>Logistics
+      </div>
+      <div class="bottom-tag">
+        <span class="tag-sub">Trusted</span>
+        Long-<br>Term
+      </div>
+      <div class="bottom-tag">
+        <span class="tag-sub">Available</span>
+        24 / 7<br>Support
+      </div>
+    </div>
+    <div class="bottom-containers-img">
+      <img src="images/bottom containers.png" alt="Stacked shipping containers at port yard" />
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-brand">Influence For Trading</div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;">
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+      <a href="mailto:info@influencetrading.com">info@influencetrading.com</a>
+    </div>
+    <div>&copy; 2026 Influence For Trading. All rights reserved.</div>
+  </footer>
+
+</body>
+
+</html>
