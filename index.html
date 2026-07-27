@@ -223,7 +223,7 @@
     /* STICKY SCROLL WRAPPER FOR SECTION 2 */
     .sec2-scroll-wrapper {
       position: relative;
-      height: 380vh;
+      height: 300vh;
     }
 
     .section-2 {
@@ -751,13 +751,12 @@
         </div>
       </div>
 
-      <!-- Slide Indicator Dots (5 steps: 0, 1, 2, 3, 4) -->
+      <!-- Slide Indicator Dots (4 steps: 0, 1, 2, 3) -->
       <div class="sec2-slide-dots">
         <span class="dot active" data-step="0"></span>
         <span class="dot" data-step="1"></span>
         <span class="dot" data-step="2"></span>
         <span class="dot" data-step="3"></span>
-        <span class="dot" data-step="4"></span>
       </div>
 
       <!-- Content Grid Overlay with Independent Left & Right Items -->
@@ -829,16 +828,6 @@
               <h2 class="sec2-heading">UNMATCHED RELIABILITY<br>&amp; CARGO SAFETY</h2>
               <p class="sec2-body">
                 Our end-to-end supply chain management guarantees precision tracking, secure freighting, and on-time port deliveries around the clock across all trade lanes.
-              </p>
-            </div>
-          </div>
-
-          <!-- Right Item 3 -->
-          <div class="sec2-right-item" data-right-index="2">
-            <div class="sec2-block">
-              <h2 class="sec2-heading">DEDICATED 24/7<br>PORT OPERATIONS</h2>
-              <p class="sec2-body">
-                Our experienced on-site teams monitor customs, bonded warehousing, and maritime transit 24 hours a day to eliminate costly port delays.
               </p>
             </div>
           </div>
@@ -929,7 +918,7 @@
 
       if (!scrollWrapper || !leftItems.length || !rightItems.length) return;
 
-      const totalSteps = 5;
+      const totalSteps = 4;
 
       function updateSec2Slides() {
         const rect = scrollWrapper.getBoundingClientRect();
