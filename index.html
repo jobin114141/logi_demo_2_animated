@@ -135,11 +135,11 @@
 
     .hero-scroll-btn {
       position: absolute;
-      bottom: 120px;
+      bottom: 80px;
       left: 48px;
       z-index: 25;
-      width: 52px;
-      height: 52px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       background: var(--orange);
       border: none;
@@ -148,14 +148,13 @@
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 22px;
-      box-shadow: 0 6px 24px rgba(224, 90, 32, 0.38);
+      box-shadow: 0 10px 32px rgba(224, 90, 32, 0.45);
       transition: transform 0.25s, box-shadow 0.25s;
     }
 
     .hero-scroll-btn:hover {
-      transform: translateY(4px);
-      box-shadow: 0 2px 12px rgba(224, 90, 32, 0.28);
+      transform: scale(1.06) translateY(2px);
+      box-shadow: 0 4px 18px rgba(224, 90, 32, 0.35);
     }
 
     .hero-badge-text {
@@ -710,12 +709,12 @@
     </div>
 
     <button class="hero-scroll-btn"
-      onclick="document.querySelector('.container-hero-section').scrollIntoView({behavior:'smooth'})"
+      onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})"
       aria-label="Scroll down">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
         stroke-linecap="round" stroke-linejoin="round">
-        <line x1="12" y1="5" x2="12" y2="19" />
-        <polyline points="19 12 12 19 5 12" />
+        <line x1="7" y1="7" x2="17" y2="17" />
+        <polyline points="7 17 17 17 17 7" />
       </svg>
     </button>
 
