@@ -335,6 +335,20 @@
       justify-content: center;
     }
 
+    /* Crane Steel Cable / Rope Line (Stationary) */
+    .sec2-container-wrap::before {
+      content: '';
+      position: absolute;
+      top: -165px;
+      left: 49.95%;  
+      transform: translateX(-50%);
+      width: 6px;
+      height: 180px;
+      background: linear-gradient(90deg, #090b0d 0%, #1c2228 35%, #38424d 50%, #1c2228 65%, #090b0d 100%);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
     .centered-container-img {
       position: relative;
       max-width: 1000px;
@@ -342,7 +356,8 @@
       display: flex;
       justify-content: center;
       animation: swing 4s ease-in-out infinite;
-      transform-origin: 50% -155px;
+      transform-origin: 50% 0px;
+      z-index: 2;
     }
 
     @keyframes swing {
@@ -352,20 +367,6 @@
       50% {
         transform: rotate(1.2deg);
       }
-    }
-
-    /* Crane Steel Cable / Rope Line */
-    .centered-container-img::before {
-      content: '';
-      position: absolute;
-      top: -250px;
-      left: 49.89%;  
-      transform: translateX(-50%);
-      width: 3px;
-      height: 265px;
-      background: linear-gradient(90deg, #090b0d 0%, #1c2228 35%, #38424d 50%, #1c2228 65%, #090b0d 100%);
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-      z-index: 1;
     }
 
     .centered-container-img img {
