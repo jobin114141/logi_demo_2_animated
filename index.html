@@ -222,7 +222,7 @@
     /* STICKY SCROLL WRAPPER FOR SECTION 2 */
     .sec2-scroll-wrapper {
       position: relative;
-      height: 300vh;
+      height: 380vh;
       border: none;
     }
 
@@ -426,6 +426,17 @@
       color: var(--dark);
       opacity: 0.8;
       line-height: 1.65;
+    }
+
+    .why-slide-word {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(80px, 14vw, 220px);
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 0.85;
+      letter-spacing: -0.03em;
+      text-shadow: 2px 4px 24px rgba(0, 0, 0, 0.15);
     }
 
 
@@ -636,12 +647,13 @@
         </div>
       </div>
 
-      <!-- Slide Indicator Dots (4 steps: 0, 1, 2, 3) -->
+      <!-- Slide Indicator Dots (5 steps: 0, 1, 2, 3, 4) -->
       <div class="sec2-slide-dots">
         <span class="dot active" data-step="0"></span>
         <span class="dot" data-step="1"></span>
         <span class="dot" data-step="2"></span>
         <span class="dot" data-step="3"></span>
+        <span class="dot" data-step="4"></span>
       </div>
 
       <!-- Content Grid Overlay with Independent Left & Right Items -->
@@ -695,6 +707,11 @@
             </div>
           </div>
 
+          <!-- Left Item 4 (Step 4: WHY) -->
+          <div class="sec2-left-item" data-left-index="3">
+            <div class="why-slide-word">WHY</div>
+          </div>
+
         </div>
 
         <!-- RIGHT COLUMN WRAPPER -->
@@ -722,6 +739,11 @@
                 port deliveries around the clock across all trade lanes.
               </p>
             </div>
+          </div>
+
+          <!-- Right Item 3 (Step 4: US?) -->
+          <div class="sec2-right-item" data-right-index="2">
+            <div class="why-slide-word">US?</div>
           </div>
 
         </div>
@@ -774,7 +796,15 @@
 
       if (!scrollWrapper || !leftItems.length || !rightItems.length) return;
 
-      const totalSteps = 4;
+      const totalSteps = 5;
+
+      const stepMapping = [
+        { left: 0, right: 0 },
+        { left: 1, right: 0 },
+        { left: 1, right: 1 },
+        { left: 2, right: 1 },
+        { left: 3, right: 2 }
+      ];
 
       function updateSec2Slides() {
         const rect = scrollWrapper.getBoundingClientRect();
@@ -790,9 +820,8 @@
           Math.floor(progress * totalSteps)
         );
 
-        // Staggered sequence: Left changes at steps 1, 3. Right changes at steps 2, 4.
-        const targetLeftIndex = Math.floor((currentStep + 1) / 2);
-        const targetRightIndex = Math.floor(currentStep / 2);
+        const targetLeftIndex = stepMapping[currentStep].left;
+        const targetRightIndex = stepMapping[currentStep].right;
 
         leftItems.forEach((item, idx) => {
           if (idx < targetLeftIndex) {
