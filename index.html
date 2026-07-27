@@ -223,7 +223,7 @@
     /* STICKY SCROLL WRAPPER FOR SECTION 2 */
     .sec2-scroll-wrapper {
       position: relative;
-      height: 300vh;
+      height: 220vh;
     }
 
     .section-2 {
@@ -751,12 +751,11 @@
         </div>
       </div>
 
-      <!-- Slide Indicator Dots (4 steps: 0, 1, 2, 3) -->
+      <!-- Slide Indicator Dots (3 steps: 0, 1, 2) -->
       <div class="sec2-slide-dots">
         <span class="dot active" data-step="0"></span>
         <span class="dot" data-step="1"></span>
         <span class="dot" data-step="2"></span>
-        <span class="dot" data-step="3"></span>
       </div>
 
       <!-- Content Grid Overlay with Independent Left & Right Items -->
@@ -789,20 +788,6 @@
               <h2 class="sec2-heading">GLOBAL NETWORK<br>&amp; BORDERLESS REACH</h2>
               <p class="sec2-body">
                 Connecting markets across continents with seamless freight solutions, customs clearance, and dedicated logistics pipelines.
-              </p>
-            </div>
-          </div>
-
-          <!-- Left Item 3 -->
-          <div class="sec2-left-item" data-left-index="2">
-            <div class="sec2-big-title">
-              SUSTAINABLE EFFICIENCY<br>FOR MODERN<br>COMMERCE
-            </div>
-
-            <div class="sec2-block">
-              <h2 class="sec2-heading">SCALABLE INFRASTRUCTURE<br>FOR ENTERPRISES</h2>
-              <p class="sec2-body">
-                Whether managing bulk raw material imports or high-tech equipment exports, we provide flexible logistics solutions built to scale.
               </p>
             </div>
           </div>
@@ -918,7 +903,7 @@
 
       if (!scrollWrapper || !leftItems.length || !rightItems.length) return;
 
-      const totalSteps = 4;
+      const totalSteps = 3;
 
       function updateSec2Slides() {
         const rect = scrollWrapper.getBoundingClientRect();
