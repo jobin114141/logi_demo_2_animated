@@ -222,7 +222,7 @@
     /* STICKY SCROLL WRAPPER FOR SECTION 2 */
     .sec2-scroll-wrapper {
       position: relative;
-      height: 380vh;
+      height: 450vh;
       border: none;
     }
 
@@ -437,13 +437,22 @@
     .why-slide-content {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
+      align-items: center;
+      text-align: center;
       max-width: 320px;
       z-index: 10;
       position: relative;
-      transform: translateY(24px);
+      transform: translateY(30px);
+      opacity: 0;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
+    .why-slide-content.stats-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
 
     .why-stat-box {
       display: flex;
@@ -457,8 +466,8 @@
 
     .why-stat-num {
       font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: clamp(48px, 5.5vw, 64px);
+      font-weight: 700;
+      font-size: clamp(34px, 4vw, 48px);
       color: var(--dark);
       line-height: 1;
       letter-spacing: -0.02em;
@@ -466,13 +475,13 @@
 
     .why-stat-label {
       font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: clamp(13px, 1.6vw, 16px);
+      font-weight: 600;
+      font-size: clamp(11px, 1.3vw, 14px);
       color: var(--dark);
       text-transform: uppercase;
       line-height: 1.1;
       letter-spacing: -0.01em;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .why-slide-body {
@@ -481,7 +490,7 @@
       color: var(--dark);
       opacity: 0.85;
       line-height: 1.55;
-      text-align: left;
+      text-align: center;
     }
 
     .why-bg-word {
@@ -716,14 +725,14 @@
           <img src="images/container.png" alt="Shipping container suspended by crane" />
         </div>
       </div>
-
-      <!-- Slide Indicator Dots (5 steps: 0, 1, 2, 3, 4) -->
+      <!-- Slide Indicator Dots (6 steps: 0, 1, 2, 3, 4, 5) -->
       <div class="sec2-slide-dots">
         <span class="dot active" data-step="0"></span>
         <span class="dot" data-step="1"></span>
         <span class="dot" data-step="2"></span>
         <span class="dot" data-step="3"></span>
         <span class="dot" data-step="4"></span>
+        <span class="dot" data-step="5"></span>
       </div>
 
       <!-- Content Grid Overlay with Independent Left & Right Items -->
@@ -777,13 +786,13 @@
             </div>
           </div>
 
-          <!-- Left Item 4 (Step 4: WHY + Stats + Text) -->
+          <!-- Left Item 4 (Step 4 & 5: WHY + Stats Reveal) -->
           <div class="sec2-left-item" data-left-index="3">
             <div class="why-slide-content">
               <div class="why-stat-box">
                 <div class="why-stat-num">5+</div>
                 <div class="why-stat-label">YEARS ON THE<br>MARKET</div>
-                <svg class="laurel-wreath" viewBox="0 0 120 70" width="90" height="52">
+                <svg class="laurel-wreath" viewBox="0 0 120 70" width="72" height="42">
                   <g fill="#162a45" opacity="0.9">
                     <path d="M50,62 C32,54 22,36 26,14 C27,10 28,6 30,2 C30,8 28,14 27,18 C24,34 32,49 48,56 Z"/>
                     <path d="M22,54 C14,48 10,40 14,33 C21,39 24,47 22,54 Z"/>
@@ -834,13 +843,13 @@
             </div>
           </div>
 
-          <!-- Right Item 3 (Step 4: US? + Stats + Text) -->
+          <!-- Right Item 3 (Step 4 & 5: US? + Stats Reveal) -->
           <div class="sec2-right-item" data-right-index="2">
             <div class="why-slide-content">
               <div class="why-stat-box">
                 <div class="why-stat-num">240+</div>
                 <div class="why-stat-label">SUCCESSFUL<br>DELIVERIES</div>
-                <svg class="laurel-wreath" viewBox="0 0 120 70" width="90" height="52">
+                <svg class="laurel-wreath" viewBox="0 0 120 70" width="72" height="42">
                   <g fill="#162a45" opacity="0.9">
                     <path d="M50,62 C32,54 22,36 26,14 C27,10 28,6 30,2 C30,8 28,14 27,18 C24,34 32,49 48,56 Z"/>
                     <path d="M22,54 C14,48 10,40 14,33 C21,39 24,47 22,54 Z"/>
@@ -912,14 +921,15 @@
 
       if (!scrollWrapper || !leftItems.length || !rightItems.length) return;
 
-      const totalSteps = 5;
+      const totalSteps = 6;
 
       const stepMapping = [
-        { left: 0, right: 0 },
-        { left: 1, right: 0 },
-        { left: 1, right: 1 },
-        { left: 2, right: 1 },
-        { left: 3, right: 2 }
+        { left: 0, right: 0, showStats: false },
+        { left: 1, right: 0, showStats: false },
+        { left: 1, right: 1, showStats: false },
+        { left: 2, right: 1, showStats: false },
+        { left: 3, right: 2, showStats: false },
+        { left: 3, right: 2, showStats: true  }
       ];
 
       function updateSec2Slides() {
@@ -938,6 +948,16 @@
 
         const targetLeftIndex = stepMapping[currentStep].left;
         const targetRightIndex = stepMapping[currentStep].right;
+        const showStats = stepMapping[currentStep].showStats;
+
+        const statContents = document.querySelectorAll('.why-slide-content');
+        statContents.forEach(el => {
+          if (showStats) {
+            el.classList.add('stats-visible');
+          } else {
+            el.classList.remove('stats-visible');
+          }
+        });
 
         leftItems.forEach((item, idx) => {
           if (idx < targetLeftIndex) {
