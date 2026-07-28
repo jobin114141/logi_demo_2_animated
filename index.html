@@ -599,6 +599,7 @@
     .bottom-containers-img {
       width: 100%;
       display: block;
+      position: relative;
     }
 
     .bottom-containers-img img {
@@ -606,6 +607,64 @@
       height: auto;
       display: block;
       object-fit: cover;
+    }
+
+    /* Overlay text on bottom containers */
+    .bottom-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 clamp(24px, 7vw, 120px);
+      box-sizing: border-box;
+      pointer-events: none;
+      z-index: 5;
+      mix-blend-mode: normal;
+      perspective: 900px;
+    }
+
+    .bottom-overlay-text {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(20px, 4vw, 68px);
+      color: #ffffff;
+      text-transform: uppercase;
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+      max-width: 38%;
+      opacity: 0.92;
+      transform-style: preserve-3d;
+    }
+
+    /* Left text: tilts inward (right) to follow left container face angle */
+    .bottom-overlay-text.left {
+      transform-origin: bottom right;
+
+      transform:
+        perspective(2600px) 
+        rotateY(87deg) 
+        rotateX(20deg) 
+        skewx(-6deg)
+        rotateZ(23.9deg) translateX(30px) translateY(100px);
+    }
+
+    /* Right text: tilts inward (left) to follow right container face angle */
+    .bottom-overlay-text.right {
+      text-align: right;
+      transform-origin: bottom left;
+
+      transform:
+        perspective(2600px) 
+        rotateY(-87deg) 
+        rotateX(-20deg) 
+        skewX(6deg) 
+        rotateZ(-23.9deg) 
+        translateX(-30px) 
+        translateY(100px);
     }
 
     /* FOOTER */
@@ -844,7 +903,7 @@
       position: relative;
       z-index: 10;
       box-sizing: border-box;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .about-bottom-text {
@@ -898,6 +957,120 @@
       .about-bottom-text {
         max-width: 100%;
         text-align: left !important;
+      }
+    }
+
+    /* ===== COMPANY DETAILS SECTION ===== */
+    .company-details-section {
+      background: #becadb;
+      color: #1a1e22;
+      padding: clamp(60px, 8vh, 100px) clamp(24px, 5vw, 72px);
+      position: relative;
+      z-index: 10;
+      border-top: none;
+      border-bottom: none;
+    }
+
+    .details-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: clamp(40px, 6vw, 100px);
+      align-items: start;
+    }
+
+    .details-left h2 {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(32px, 4.5vw, 68px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      color: #1a1e22;
+      letter-spacing: -0.01em;
+    }
+
+    .details-left p {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(14px, 1.1vw, 17px);
+      color: rgba(26,30,34,0.6);
+      line-height: 1.65;
+      max-width: 480px;
+    }
+
+    .details-left p span {
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    .details-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .detail-card {
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      display: flex;
+      align-items: flex-start;
+      gap: clamp(20px, 3vw, 40px);
+      transition: all 0.3s ease;
+    }
+
+    .detail-card:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .detail-card:first-child {
+      padding-top: 0;
+    }
+
+    .detail-num {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(24px, 2.5vw, 40px);
+      color: var(--orange);
+      line-height: 1;
+      opacity: 0.85;
+      transition: transform 0.3s ease;
+    }
+
+    .detail-content h3 {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(18px, 1.8vw, 24px);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+      color: #1a1e22;
+    }
+
+    .detail-content p {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(12.5px, 1vw, 14.5px);
+      color: rgba(26,30,34,0.55);
+      line-height: 1.6;
+      max-width: 620px;
+    }
+
+    .detail-card:hover .detail-num {
+      transform: translateX(6px);
+    }
+    
+    .detail-card:hover .detail-content h3 {
+      color: var(--orange);
+      transition: color 0.2s ease;
+    }
+
+    @media (max-width: 900px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .details-left p {
+        max-width: 100%;
       }
     }
   </style>
@@ -1118,10 +1291,53 @@
 
 
 
+  <!-- COMPANY DETAILS SECTION -->
+  <section class="company-details-section">
+    <div class="details-grid">
+      <div class="details-left">
+        <h2>Uncompromised<br>Industrial<br>Standards</h2>
+        <p>
+          Operating from key logistics hubs in the <span>United Arab Emirates</span>, Influence For Trading leverages world-class infrastructure to distribute technology, machinery, and wholesale goods with absolute efficiency. We bridge markets seamlessly, keeping compliance and safety at the absolute forefront.
+        </p>
+      </div>
+      <div class="details-right">
+        <div class="detail-card">
+          <div class="detail-num">01 /</div>
+          <div class="detail-content">
+            <h3>Port-to-Port Transit</h3>
+            <p>Direct integration with terminal operating systems for rapid container devanning, bulk handling, and priority customs clearance at major maritime ports.</p>
+          </div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-num">02 /</div>
+          <div class="detail-content">
+            <h3>Certified Warehousing</h3>
+            <p>State-of-the-art secure facilities optimized for cold-chain, hazardous materials, high-value electronics, and automated sorting distribution pathways.</p>
+          </div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-num">03 /</div>
+          <div class="detail-content">
+            <h3>Regulatory Assurance</h3>
+            <p>Strictest adherence to national safety codes, customs frameworks, compliance audits, and global supply chain security standards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- BOTTOM CONTAINERS IMAGE -->
   <section class="bottom-section" id="services">
     <div class="bottom-containers-img">
       <img src="images/bottom containers.png" alt="Stacked shipping containers at port yard" />
+      <!-- <div class="bottom-overlay">
+        <div class="bottom-overlay-text left">
+          REVOLUTIONIZING
+        </div>
+        <div class="bottom-overlay-text right">
+          COMMITTED<br>TO LONG-TERM<br>SUCCESS
+        </div>
+      </div> -->
     </div>
   </section>
 
