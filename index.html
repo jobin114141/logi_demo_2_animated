@@ -255,11 +255,11 @@
       position: relative;
       z-index: 10;
       width: 100%;
-      max-width: 1400px;
+      max-width: 1500px;
       height: 85vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: clamp(40px, 8vw, 140px);
     }
 
     .sec2-left-col-wrap,
@@ -289,6 +289,7 @@
     .sec2-right-item {
       justify-content: center;
       align-items: flex-end;
+      text-align: right;
     }
 
     .sec2-left-item.active,
@@ -420,7 +421,7 @@
     .sec2-big-title {
       font-family: 'Anton', sans-serif;
       font-weight: 400;
-      font-size: clamp(36px, 4.5vw, 68px);
+      font-size: clamp(22px, 3.8vw, 64px);
       color: var(--white);
       text-transform: uppercase;
       line-height: 0.92;
@@ -430,25 +431,34 @@
     }
 
     .sec2-block {
-      max-width: 420px;
+      max-width: clamp(200px, 22vw, 360px);
+    }
+
+    .sec2-left-item .sec2-block {
+      text-align: left;
+    }
+
+    .sec2-right-item .sec2-block {
+      margin-left: auto;
+      text-align: right;
     }
 
     .sec2-heading {
       font-family: 'Anton', sans-serif;
       font-weight: 400;
-      font-size: clamp(24px, 2.5vw, 36px);
+      font-size: clamp(18px, 2.2vw, 32px);
       color: var(--dark);
       text-transform: uppercase;
-      line-height: 1.05;
+      line-height: 1.1;
       letter-spacing: -0.01em;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .sec2-body {
       font-family: 'Barlow', sans-serif;
-      font-size: 13.5px;
+      font-size: clamp(12px, 1.1vw, 14px);
       color: var(--dark);
-      opacity: 0.8;
+      opacity: 0.85;
       line-height: 1.65;
     }
 
@@ -491,7 +501,7 @@
     .why-stat-num {
       font-family: 'Anton', sans-serif;
       font-weight: 400;
-      font-size: clamp(34px, 4vw, 48px);
+      font-size: clamp(24px, 3vw, 44px);
       color: var(--dark);
       line-height: 1;
       letter-spacing: -0.02em;
@@ -500,7 +510,7 @@
     .why-stat-label {
       font-family: 'Anton', sans-serif;
       font-weight: 400;
-      font-size: clamp(11px, 1.3vw, 14px);
+      font-size: clamp(9.5px, 1.1vw, 13px);
       color: var(--dark);
       text-transform: uppercase;
       line-height: 1.1;
@@ -510,10 +520,10 @@
 
     .why-slide-body {
       font-family: 'Barlow', sans-serif;
-      font-size: 13px;
+      font-size: clamp(10.5px, 0.9vw, 13px);
       color: var(--dark);
       opacity: 0.85;
-      line-height: 1.55;
+      line-height: 1.5;
       text-align: center;
     }
 
@@ -521,7 +531,7 @@
       position: absolute;
       font-family: 'Anton', sans-serif;
       font-weight: 400;
-      font-size: clamp(110px, 16vw, 220px);
+      font-size: clamp(50px, 12vw, 200px);
       text-transform: uppercase;
       color: var(--white);
       line-height: 0.8;
