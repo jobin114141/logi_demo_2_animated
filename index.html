@@ -1216,6 +1216,334 @@
       transform: translateY(0);
     }
 
+    /* ===== BROKERAGE SERVICES SECTION (Minimalist Floating Architectural Flow) ===== */
+    .brokerage-section {
+      background: var(--sky);
+      position: relative;
+      overflow: hidden;
+      padding: clamp(90px, 12vh, 160px) clamp(24px, 5vw, 72px);
+      z-index: 10;
+    }
+
+    .brokerage-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .brokerage-banner-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(20px, 3vw, 40px);
+      margin-bottom: clamp(60px, 9vh, 110px);
+    }
+
+    .brokerage-banner-title {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(32px, 4.8vw, 76px);
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .brokerage-banner-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.6);
+      border: none;
+    }
+
+    .brokerage-banner-sub {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(10px, 0.85vw, 13px);
+      color: rgba(18, 34, 56, 0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      white-space: nowrap;
+    }
+
+    .brokerage-flow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(24px, 3vw, 48px);
+      position: relative;
+    }
+
+    .brokerage-flow-item {
+      display: flex;
+      flex-direction: column;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.65);
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0;
+      transform: translateY(35px);
+    }
+
+    .brokerage-flow-item.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .brokerage-flow-item::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--orange);
+      transition: width 0.4s ease;
+    }
+
+    .brokerage-flow-item:hover::before {
+      width: 100%;
+    }
+
+    .brokerage-flow-num {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(32px, 3.5vw, 56px);
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 20px;
+      opacity: 0.95;
+    }
+
+    .brokerage-flow-item h3 {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(20px, 2.2vw, 30px);
+      text-transform: uppercase;
+      color: #122238;
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+      line-height: 1.02;
+    }
+
+    .brokerage-flow-item p {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(12.5px, 0.95vw, 14.5px);
+      color: rgba(18, 34, 56, 0.72);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .brokerage-flow-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      .brokerage-flow-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== SPECIALIZED BROKERAGE SUB-SECTION ===== */
+    .brokerage-specialized-section {
+      margin-top: clamp(60px, 9vh, 120px);
+      padding-top: clamp(40px, 6vh, 80px);
+      border-top: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .brokerage-spec-banner {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2vw, 32px);
+      margin-bottom: clamp(40px, 6vh, 70px);
+    }
+
+    .brokerage-spec-tag {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(32px, 4.8vw, 76px);
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .brokerage-spec-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.5);
+      border: none;
+    }
+
+    .brokerage-banner-row,
+    .brokerage-spec-banner {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .brokerage-banner-row.reveal-visible,
+    .brokerage-spec-banner.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered progressive scroll reveal delays for items 01-04 */
+    .brokerage-flow-item:nth-child(1) { transition-delay: 0.1s; }
+    .brokerage-flow-item:nth-child(2) { transition-delay: 0.25s; }
+    .brokerage-flow-item:nth-child(3) { transition-delay: 0.4s; }
+    .brokerage-flow-item:nth-child(4) { transition-delay: 0.55s; }
+
+    /* Staggered progressive scroll reveal delays for specialized items 05-08 */
+    .brokerage-spec-item:nth-child(1) { transition-delay: 0.1s; }
+    .brokerage-spec-item:nth-child(2) { transition-delay: 0.25s; }
+    .brokerage-spec-item:nth-child(3) { transition-delay: 0.4s; }
+    .brokerage-spec-item:nth-child(4) { transition-delay: 0.55s; }
+
+    .brokerage-spec-card {
+      transition-delay: 0.3s;
+    }
+
+    .brokerage-spec-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: clamp(32px, 4vw, 64px);
+      align-items: start;
+    }
+
+    .brokerage-spec-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(28px, 3.5vw, 48px) clamp(24px, 3vw, 40px);
+    }
+
+    .brokerage-spec-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .brokerage-spec-item.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .brokerage-spec-num {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(20px, 2vw, 28px);
+      color: var(--orange);
+      line-height: 1;
+      padding-top: 2px;
+    }
+
+    .brokerage-spec-info h4 {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(16px, 1.6vw, 22px);
+      color: #122238;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .brokerage-spec-info p {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(12px, 0.9vw, 14px);
+      color: rgba(18, 34, 56, 0.72);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .brokerage-spec-card {
+      background: rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      border-radius: 12px;
+      padding: clamp(28px, 3.5vw, 44px) clamp(24px, 2.8vw, 36px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 16px 40px rgba(18, 34, 56, 0.08);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .brokerage-spec-card.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .brokerage-spec-badge {
+      font-family: 'Barlow', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .brokerage-spec-card h3 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(22px, 2.2vw, 32px);
+      color: #122238;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+
+    .brokerage-spec-card p {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(12.5px, 0.95vw, 14.5px);
+      color: rgba(18, 34, 56, 0.72);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .brokerage-spec-stats {
+      display: flex;
+      gap: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(18, 34, 56, 0.1);
+    }
+
+    .brokerage-stat-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brokerage-stat-box .stat-num {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(24px, 2.5vw, 36px);
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .brokerage-stat-box .stat-lbl {
+      font-family: 'Barlow', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(18, 34, 56, 0.6);
+    }
+
+    @media (max-width: 900px) {
+      .brokerage-spec-grid {
+        grid-template-columns: 1fr;
+      }
+      .brokerage-spec-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 850px) {
       .seafreight-main-row {
         grid-template-columns: 1fr;
@@ -1668,6 +1996,106 @@
     </div>
   </section>
 
+  <!-- BROKERAGE SERVICES SECTION -->
+  <section class="brokerage-section" id="brokerage">
+    <div class="brokerage-container">
+      <div class="brokerage-banner-row">
+        <div class="brokerage-banner-title">BROKERAGE SOLUTIONS</div>
+        <hr class="brokerage-banner-line" />
+        <span class="brokerage-banner-sub">For Maritime Clearance</span>
+      </div>
+
+      <div class="brokerage-flow-grid">
+        <div class="brokerage-flow-item">
+          <div class="brokerage-flow-num">01 /</div>
+          <h3>Customs<br>Declaration</h3>
+          <p>Full-spectrum import &amp; export declaration, HS-code classification, and duty optimization at all major UAE terminals.</p>
+        </div>
+
+        <div class="brokerage-flow-item">
+          <div class="brokerage-flow-num">02 /</div>
+          <h3>Freight<br>Forwarding</h3>
+          <p>End-to-end multimodal transport booking, vessel space reservation, and bill of lading processing.</p>
+        </div>
+
+        <div class="brokerage-flow-item">
+          <div class="brokerage-flow-num">03 /</div>
+          <h3>Port<br>Release</h3>
+          <p>Direct liaison with maritime port authorities for swift container release, inspection, and devanning.</p>
+        </div>
+
+        <div class="brokerage-flow-item">
+          <div class="brokerage-flow-num">04 /</div>
+          <h3>Compliance<br>Audits</h3>
+          <p>Regulatory advisory, trade agreement compliance, and tariff reduction strategies for international cargo.</p>
+        </div>
+      </div>
+
+      <!-- NEW BLENDING SUB-SECTION: SPECIALIZED CAPABILITIES -->
+      <div class="brokerage-specialized-section">
+        <div class="brokerage-spec-banner">
+          <span class="brokerage-spec-label">Fast-Track Clearance</span>
+          <hr class="brokerage-spec-line" />
+          <span class="brokerage-spec-tag">SPECIALIZED CAPABILITIES</span>
+        </div>
+
+        <div class="brokerage-spec-grid">
+          <!-- Left side: 2-column feature list -->
+          <div class="brokerage-spec-list">
+            <div class="brokerage-spec-item">
+              <div class="brokerage-spec-num">05 /</div>
+              <div class="brokerage-spec-info">
+                <h4>Free-Zone Storage</h4>
+                <p>Bonded warehousing, free-zone customs transit, and inventory management across major UAE hubs.</p>
+              </div>
+            </div>
+
+            <div class="brokerage-spec-item">
+              <div class="brokerage-spec-num">06 /</div>
+              <div class="brokerage-spec-info">
+                <h4>Hazardous &amp; Cold Cargo</h4>
+                <p>Dangerous goods certifications, MOIAT clearance, and active temperature-controlled maritime documentation.</p>
+              </div>
+            </div>
+
+            <div class="brokerage-spec-item">
+              <div class="brokerage-spec-num">07 /</div>
+              <div class="brokerage-spec-info">
+                <h4>Priority Clearance</h4>
+                <p>Pre-arrival document validation and automated risk-pass clearance for instant port-side container release.</p>
+              </div>
+            </div>
+
+            <div class="brokerage-spec-item">
+              <div class="brokerage-spec-num">08 /</div>
+              <div class="brokerage-spec-info">
+                <h4>Cross-Border Advisory</h4>
+                <p>Harmonized regional tariff processing, overland transit permits, and GCC customs union compliance support.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side: Blending Stat Card -->
+          <div class="brokerage-spec-card">
+            <div class="brokerage-spec-badge">100% REGULATORY ACCREDITED</div>
+            <h3>ACCELERATED CUSTOMS RELEASE</h3>
+            <p>Our dedicated customs liaison team operates round-the-clock at main UAE maritime terminals, ensuring zero demurrage delays and instant shipment authorization.</p>
+            <div class="brokerage-spec-stats">
+              <div class="brokerage-stat-box">
+                <span class="stat-num">&lt;24hrs</span>
+                <span class="stat-lbl">Average Release</span>
+              </div>
+              <div class="brokerage-stat-box">
+                <span class="stat-num">99.8%</span>
+                <span class="stat-lbl">Clearance Success</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- INTRO BANNER SECTION -->
   <section class="intro-banner-section">
     <div class="intro-banner-top">
@@ -1681,20 +2109,21 @@
     <img class="intro-banner-img" src="images/containers_stacked.png" alt="Stacked shipping containers" />
   </section>
 
-  <!-- BOTTOM CONTAINERS IMAGE -->
+  <!-- BOTTOM CONTAINERS IMAGE
   <section class="bottom-section" id="services">
     <div class="bottom-containers-img">
       <img src="images/bottom containers.png" alt="Stacked shipping containers at port yard" />
-      <!-- <div class="bottom-overlay">
+      <div class="bottom-overlay">
         <div class="bottom-overlay-text left">
           REVOLUTIONIZING
         </div>
         <div class="bottom-overlay-text right">
           COMMITTED<br>TO LONG-TERM<br>SUCCESS
         </div>
-      </div> -->
+      </div>
     </div>
   </section>
+  -->
 
 
 
@@ -1886,8 +2315,8 @@
         shipObserver.observe(shipImg);
       }
 
-      // Scroll reveal for SEAFREIGHT feature items and bottom text
-      const seafreightItems = document.querySelectorAll('.seafreight-item, .seafreight-bottom-text');
+      // Scroll reveal for SEAFREIGHT feature items, bottom text, brokerage headers, flow items & spec items
+      const seafreightItems = document.querySelectorAll('.seafreight-item, .seafreight-bottom-text, .brokerage-banner-row, .brokerage-flow-item, .brokerage-spec-banner, .brokerage-spec-item, .brokerage-spec-card');
       if (seafreightItems.length) {
         const itemObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
@@ -1895,7 +2324,7 @@
               entry.target.classList.add('reveal-visible');
             }
           });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.15 });
 
         seafreightItems.forEach(item => itemObserver.observe(item));
       }
