@@ -959,8 +959,252 @@
         text-align: left !important;
       }
     }
+    /* ===== INTRO BANNER SECTION (above about/goal/result) ===== */
+    .intro-banner-section {
+      background: var(--sky);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
 
-    /* ===== COMPANY DETAILS SECTION ===== */
+    .intro-banner-top {
+      padding: clamp(100px, 14vh, 200px) 0 0;
+    }
+
+    .intro-banner-headline {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(32px, 8.2vw, 140px);
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      width: 100%;
+      display: block;
+      text-align: center;
+      padding: 0 clamp(24px, 5vw, 72px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-banner-sub {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: clamp(16px, 2vw, 32px);
+      padding: clamp(10px, 1.5vh, 18px) clamp(24px, 5vw, 72px) clamp(28px, 4vh, 52px);
+      margin-top: clamp(10px, 1.5vh, 20px);
+    }
+
+    .intro-banner-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.55);
+      border: none;
+    }
+
+    .intro-banner-label {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(9px, 0.78vw, 12px);
+      color: rgba(255,255,255,0.75);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      white-space: nowrap;
+    }
+
+    .intro-banner-img {
+      width: 100%;
+      display: block;
+      max-width: clamp(600px, 76vw, 1300px);
+      margin: -10vw auto 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Scroll reveal for Intro Banner (INFLUENCE FOR TRADING) */
+    .intro-banner-headline,
+    .intro-banner-sub,
+    .intro-banner-img {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+    }
+
+    .intro-banner-sub {
+      transition-delay: 0.55s;
+    }
+
+    .intro-banner-img {
+      transition-delay: 0.7s;
+    }
+
+    .intro-banner-headline.reveal-visible,
+    .intro-banner-sub.reveal-visible,
+    .intro-banner-img.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== SEAFREIGHT SECTION ===== */
+    .seafreight-section {
+      background: var(--sky);
+      position: relative;
+      overflow: hidden;
+      padding: clamp(140px, 18vh, 240px) 0 clamp(40px, 6vh, 80px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .seafreight-headline {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(60px, 14vw, 210px);
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 0.85;
+      letter-spacing: 0.02em;
+      white-space: nowrap;  
+      text-align: center;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+    }
+
+    .seafreight-headline.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .seafreight-main-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      width: 100%;
+      padding: 0 clamp(24px, 4vw, 72px);
+      margin-top: clamp(20px, 4vw, 60px);
+      position: relative;
+      z-index: 10;
+      gap: clamp(16px, 3vw, 48px);
+    }
+
+    .seafreight-col {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0;
+    }
+
+    .seafreight-col.left {
+      text-align: right;
+      align-items: flex-end;
+    }
+
+    .seafreight-col.right {
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    .seafreight-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: clamp(100px, 22vh, 220px);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+    }
+
+    .seafreight-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .seafreight-item.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .seafreight-col.left .seafreight-item {
+      align-items: flex-end;
+    }
+
+    .seafreight-col.right .seafreight-item {
+      align-items: flex-start;
+    }
+
+    .seafreight-col h3 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(18px, 2.1vw, 34px);
+      line-height: 0.95;
+      color: #122238;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .seafreight-col p {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(10.5px, 0.8vw, 13.5px);
+      color: rgba(18, 34, 56, 0.7);
+      line-height: 1.5;
+      max-width: 270px;
+      margin-bottom: 24px;
+    }
+
+    .seafreight-line-wrap {
+      display: flex;
+      align-items: center;
+      width: clamp(280px, 32vw, 520px);
+    }
+
+    .seafreight-line-wrap .seafreight-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+    }
+
+    .seafreight-second-row {
+      margin-top: -clamp(80px, 12vw, 180px);
+    }
+
+    .seafreight-center-spacer {
+      width: clamp(170px, 18vw, 300px);
+    }
+
+    .seafreight-dot {
+      width: 5px;
+      height: 5px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .seafreight-ship-img {
+      width: 100%;
+      max-width: clamp(210px, 22vw, 370px);
+      height: auto;
+      display: block;
+      margin-top: -11vw;
+      position: relative;
+      z-index: 20;
+    }
+
+    @media (max-width: 850px) {
+      .seafreight-main-row {
+        grid-template-columns: 1fr;
+        margin-top: -5vw;
+        gap: 32px;
+      }
+      .seafreight-ship-img {
+        margin: 0 auto;
+        order: -1;
+      }
+    }
+
     .company-details-section {
       background: #becadb;
       color: #1a1e22;
@@ -1326,6 +1570,89 @@
     </div>
   </section>
 
+  <!-- INTRO BANNER SECTION -->
+  <section class="intro-banner-section">
+    <div class="intro-banner-top">
+      <div class="intro-banner-headline">INFLUENCE FOR TRADING</div>
+      <div class="intro-banner-sub">
+        <span class="intro-banner-label">Inter Regular</span>
+        <hr class="intro-banner-line" />
+        <span class="intro-banner-label">For Description</span>
+      </div>
+    </div>
+    <img class="intro-banner-img" src="images/containers_stacked.png" alt="Stacked shipping containers" />
+  </section>
+
+  <!-- SEAFREIGHT SECTION -->
+  <section class="seafreight-section" id="seafreight">
+    <div class="seafreight-headline">SEAFREIGHT</div>
+    
+    <div class="seafreight-main-row">
+      <!-- Left Column -->
+      <div class="seafreight-col left">
+        <div class="seafreight-item">
+          <h3>HIGH<br>CAPACITY</h3>
+          <p>Our ships can transport large volumes of goods, making maritime freight ideal for bulk cargo and heavy goods.</p>
+          <div class="seafreight-line-wrap">
+            <hr class="seafreight-line" />
+            <span class="seafreight-dot"></span>
+          </div>
+        </div>
+
+        <div class="seafreight-item">
+          <h3>GLOBAL<br>REACH</h3>
+          <p>Connecting major trade corridors across the UAE and international ports with reliable scheduled vessel departures.</p>
+          <div class="seafreight-line-wrap">
+            <hr class="seafreight-line" />
+            <span class="seafreight-dot"></span>
+          </div>
+        </div>
+
+        <div class="seafreight-item">
+          <h3>SCHEDULED<br>DEPARTURES</h3>
+          <p>Fixed sailing schedules across major maritime routes to guarantee predictable transit times for your inventory.</p>
+          <div class="seafreight-line-wrap">
+            <hr class="seafreight-line" />
+            <span class="seafreight-dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Cargo Ship Image -->
+      <img class="seafreight-ship-img" src="images/ship.png" alt="Cargo Container Ship" />
+
+      <!-- Right Column -->
+      <div class="seafreight-col right">
+        <div class="seafreight-item">
+          <h3>ENHANCED<br>SECURITY</h3>
+          <p>With advanced tracking systems and secure handling processes, we ensure the safe delivery of your shipments across international waters.</p>
+          <div class="seafreight-line-wrap">
+            <span class="seafreight-dot"></span>
+            <hr class="seafreight-line" />
+          </div>
+        </div>
+
+        <div class="seafreight-item">
+          <h3>COST<br>EFFICIENCY</h3>
+          <p>Optimized container load configurations and competitive freight rates to maximize value for high-volume cargo.</p>
+          <div class="seafreight-line-wrap">
+            <span class="seafreight-dot"></span>
+            <hr class="seafreight-line" />
+          </div>
+        </div>
+
+        <div class="seafreight-item">
+          <h3>SUSTAINABLE<br>OPERATIONS</h3>
+          <p>Modern vessel fleets engineered to reduce emissions and optimize fuel performance on long-haul sea routes.</p>
+          <div class="seafreight-line-wrap">
+            <span class="seafreight-dot"></span>
+            <hr class="seafreight-line" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- BOTTOM CONTAINERS IMAGE -->
   <section class="bottom-section" id="services">
     <div class="bottom-containers-img">
@@ -1340,6 +1667,8 @@
       </div> -->
     </div>
   </section>
+
+
 
   <!-- ABOUT PROJECT SECTION -->
   <section class="about-section" id="about">
@@ -1500,7 +1829,48 @@
       window.addEventListener('resize', updateSec2Slides, { passive: true });
       updateSec2Slides();
 
+      // Scroll reveal for INFLUENCE FOR TRADING section
+      const bannerElements = document.querySelectorAll('.intro-banner-headline, .intro-banner-sub, .intro-banner-img');
+      if (bannerElements.length) {
+        const bannerObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-visible');
+            }
+          });
+        }, { threshold: 0.15 });
 
+        bannerElements.forEach(el => bannerObserver.observe(el));
+      }
+
+      // Scroll reveal for SEAFREIGHT headline when ship enters viewport (reveals from bottom to top)
+      const shipImg = document.querySelector('.seafreight-ship-img');
+      const seafreightHeadline = document.querySelector('.seafreight-headline');
+      if (shipImg && seafreightHeadline) {
+        const shipObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              seafreightHeadline.classList.add('reveal-visible');
+            }
+          });
+        }, { threshold: 0.1 });
+
+        shipObserver.observe(shipImg);
+      }
+
+      // Scroll reveal for SEAFREIGHT feature items
+      const seafreightItems = document.querySelectorAll('.seafreight-item');
+      if (seafreightItems.length) {
+        const itemObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-visible');
+            }
+          });
+        }, { threshold: 0.2 });
+
+        seafreightItems.forEach(item => itemObserver.observe(item));
+      }
     });
   </script>
 </body>
