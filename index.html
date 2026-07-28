@@ -1185,12 +1185,35 @@
 
     .seafreight-ship-img {
       width: 100%;
-      max-width: clamp(210px, 22vw, 370px);
+      max-width: clamp(270px, 29vw, 470px);
       height: auto;
       display: block;
       margin-top: -11vw;
       position: relative;
       z-index: 20;
+    }
+
+    .seafreight-bottom-text {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(24px, 3.8vw, 56px);
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+      text-align: center;
+      margin-top: clamp(40px, 6vh, 90px);
+      margin-bottom: clamp(20px, 3vh, 40px);
+      position: relative;
+      z-index: 10;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+    }
+
+    .seafreight-bottom-text.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media (max-width: 850px) {
@@ -1570,19 +1593,6 @@
     </div>
   </section>
 
-  <!-- INTRO BANNER SECTION -->
-  <section class="intro-banner-section">
-    <div class="intro-banner-top">
-      <div class="intro-banner-headline">INFLUENCE FOR TRADING</div>
-      <div class="intro-banner-sub">
-        <span class="intro-banner-label">Inter Regular</span>
-        <hr class="intro-banner-line" />
-        <span class="intro-banner-label">For Description</span>
-      </div>
-    </div>
-    <img class="intro-banner-img" src="images/containers_stacked.png" alt="Stacked shipping containers" />
-  </section>
-
   <!-- SEAFREIGHT SECTION -->
   <section class="seafreight-section" id="seafreight">
     <div class="seafreight-headline">SEAFREIGHT</div>
@@ -1651,6 +1661,24 @@
         </div>
       </div>
     </div>
+
+    <!-- SEAFREIGHT BOTTOM BANNER TEXT -->
+    <div class="seafreight-bottom-text">
+      WE ALSO PROVIDE YOU WITH<br>BROKERAGE SERVICES:
+    </div>
+  </section>
+
+  <!-- INTRO BANNER SECTION -->
+  <section class="intro-banner-section">
+    <div class="intro-banner-top">
+      <div class="intro-banner-headline">INFLUENCE FOR TRADING</div>
+      <div class="intro-banner-sub">
+        <span class="intro-banner-label">Inter Regular</span>
+        <hr class="intro-banner-line" />
+        <span class="intro-banner-label">For Description</span>
+      </div>
+    </div>
+    <img class="intro-banner-img" src="images/containers_stacked.png" alt="Stacked shipping containers" />
   </section>
 
   <!-- BOTTOM CONTAINERS IMAGE -->
@@ -1858,8 +1886,8 @@
         shipObserver.observe(shipImg);
       }
 
-      // Scroll reveal for SEAFREIGHT feature items
-      const seafreightItems = document.querySelectorAll('.seafreight-item');
+      // Scroll reveal for SEAFREIGHT feature items and bottom text
+      const seafreightItems = document.querySelectorAll('.seafreight-item, .seafreight-bottom-text');
       if (seafreightItems.length) {
         const itemObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
