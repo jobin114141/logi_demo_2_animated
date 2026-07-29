@@ -1665,6 +1665,33 @@
       max-width: 620px;
     }
 
+    .details-left,
+    .detail-card,
+    .products-left {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .details-left.reveal-visible,
+    .detail-card.reveal-visible,
+    .products-left.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .detail-card:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+
+    .detail-card:nth-child(2) {
+      transition-delay: 0.25s;
+    }
+
+    .detail-card:nth-child(3) {
+      transition-delay: 0.4s;
+    }
+
     .detail-card:hover .detail-num {
       transform: translateX(6px);
     }
@@ -1904,8 +1931,16 @@
       align-items: center;
       justify-content: flex-start;
       position: relative;
-      transform: translateX(-10px);
+      transform: translateX(-10px) translateY(35px);
+      opacity: 0;
       height: clamp(280px, 34vw, 520px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: 0.2s;
+    }
+
+    .products-center.reveal-visible {
+      opacity: 1;
+      transform: translateX(-10px) translateY(0);
     }
 
     .products-float-img {
@@ -3011,8 +3046,8 @@
         shipObserver.observe(shipImg);
       }
 
-      // Scroll reveal for SEAFREIGHT feature items, bottom text, brokerage headers, flow items & spec items
-      const seafreightItems = document.querySelectorAll('.seafreight-item, .seafreight-bottom-text, .brokerage-banner-row, .brokerage-flow-item, .brokerage-spec-banner, .brokerage-spec-item, .brokerage-spec-card');
+      // Scroll reveal for details section, products section (left & ship center), seafreight items, brokerage headers, flow items & spec items
+      const seafreightItems = document.querySelectorAll('.details-left, .detail-card, .products-left, .products-center, .seafreight-item, .seafreight-bottom-text, .brokerage-banner-row, .brokerage-flow-item, .brokerage-spec-banner, .brokerage-spec-item, .brokerage-spec-card');
       if (seafreightItems.length) {
         const itemObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
