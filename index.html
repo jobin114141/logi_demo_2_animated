@@ -1002,7 +1002,7 @@
         flex-direction: column;
         padding: 0 16px 32px 16px;
         min-height: auto;
-        background: #101214;
+        background: linear-gradient(180deg, #0d0f11 0%, #171b1f 100%);
       }
 
       .about-middle {
@@ -1743,8 +1743,8 @@
         order: initial;
         opacity: 0.98;
         pointer-events: none;
-        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 88%, rgba(0, 0, 0, 0) 100%);
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 88%, rgba(0, 0, 0, 0) 100%);
       }
 
       .seafreight-col {
@@ -2663,11 +2663,11 @@
         -webkit-backdrop-filter: blur(16px);
         border: 1px solid rgba(255, 255, 255, 0.22);
         border-radius: 16px;
-        padding: 22px 18px;
+        padding: 32px 22px 48px 22px;
         align-items: flex-start;
         text-align: left;
         border-bottom: none;
-        margin-bottom: 18px;
+        margin-bottom: 24px;
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
         box-sizing: border-box;
       }
@@ -2698,13 +2698,16 @@
         color: rgba(255, 255, 255, 0.88);
         line-height: 1.6;
         margin-top: 4px;
+        margin-bottom: 8px;
       }
 
       .products-cat-features {
         align-items: flex-start;
-        margin-top: 10px;
-        gap: 8px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        gap: 10px;
         width: 100%;
+        padding-bottom: 16px;
       }
 
       .products-cat-features li {
@@ -2731,6 +2734,355 @@
         margin-bottom: 10px;
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
       }
+
+      /* HERO MOBILE FULL RESTRUCTURE */
+      .hero::before {
+        display: none !important;
+      }
+
+      .hero {
+        position: relative !important;
+        min-height: auto !important;
+        padding: 36px 18px 48px 18px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        background: linear-gradient(180deg, #1070ac 0%, #177ebf 100%) !important;
+      }
+
+      .hero-headline {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin-bottom: 20px !important;
+        z-index: 20 !important;
+      }
+
+      .hero-headline h1 {
+        font-size: clamp(34px, 9.8vw, 56px) !important;
+        line-height: 0.92 !important;
+        text-align: center !important;
+        white-space: normal !important;
+        margin-bottom: 14px !important;
+        color: #ffffff !important;
+        text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
+        letter-spacing: -0.01em !important;
+      }
+
+      .hero-nav {
+        display: inline-flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+        margin: 6px auto 0 !important;
+        padding: 8px 18px !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        border-radius: 30px !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+      }
+
+      .hero-nav a {
+        font-size: 12.5px !important;
+        color: #ffffff !important;
+        letter-spacing: 0.1em !important;
+        opacity: 0.95 !important;
+        font-family: 'Anton', sans-serif !important;
+      }
+
+      .hero-nav-divider {
+        background: rgba(255, 255, 255, 0.4) !important;
+        height: 12px !important;
+      }
+
+      .hero-crane {
+        position: relative !important;
+        height: 210px !important;
+        width: 100% !important;
+        margin: 16px 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      .hero-crane img {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+        transform: none !important;
+        filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.25)) !important;
+      }
+
+      .hero-badge-text {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        margin-top: 14px !important;
+        padding: 24px 20px !important;
+        z-index: 20 !important;
+        background: rgba(255, 255, 255, 0.14) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.28) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2) !important;
+        box-sizing: border-box !important;
+      }
+
+      .badge-label {
+        font-size: 19px !important;
+        color: var(--orange) !important;
+        text-align: center !important;
+        line-height: 1.2 !important;
+        margin-bottom: 8px !important;
+        font-family: 'Anton', sans-serif !important;
+        letter-spacing: 0.02em !important;
+      }
+
+      .hero-badge-text p {
+        font-size: 13px !important;
+        line-height: 1.6 !important;
+        color: rgba(255, 255, 255, 0.95) !important;
+        text-align: center !important;
+        max-width: 100% !important;
+        margin-bottom: 0 !important;
+      }
+
+      .hero-scroll-btn {
+        display: none !important;
+      }
+
+      /* SECTION 2 (WHY US?) MOBILE REFINEMENTS */
+      .sec2-scroll-wrapper {
+        height: auto !important;
+        position: relative !important;
+      }
+
+      .section-2 {
+        position: relative !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding: 40px 16px !important;
+        top: auto !important;
+        background: #cbd8e6 !important;
+      }
+
+      .sec2-container-wrap,
+      .sec2-big-title,
+      .why-bg-word,
+      .sec2-slide-dots {
+        display: none !important;
+      }
+
+      .sec2-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        min-height: auto !important;
+      }
+
+      .sec2-left-col-wrap,
+      .sec2-right-col-wrap {
+        position: relative !important;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        width: 100% !important;
+      }
+
+      .sec2-left-item,
+      .sec2-right-item {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        width: 100% !important;
+        height: auto !important;
+        background: #ffffff !important;
+        border-radius: 16px !important;
+        padding: 28px 20px !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
+
+      .sec2-block {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
+
+      .sec2-heading {
+        font-size: 19px !important;
+        line-height: 1.2 !important;
+        margin-bottom: 8px !important;
+        color: #101214 !important;
+        font-family: 'Anton', sans-serif !important;
+        letter-spacing: 0.01em !important;
+        text-align: center !important;
+      }
+
+      .sec2-body {
+        font-size: 13px !important;
+        line-height: 1.6 !important;
+        color: rgba(26, 30, 34, 0.78) !important;
+        text-align: center !important;
+      }
+
+      .why-slide-content {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        margin-top: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+      }
+
+      .why-stat-box {
+        background: rgba(0, 0, 0, 0.03) !important;
+        border: 1px solid rgba(0, 0, 0, 0.06) !important;
+        border-radius: 12px !important;
+        padding: 20px 20px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+
+      .why-stat-num {
+        font-size: 32px !important;
+        color: #101214 !important;
+        font-family: 'Anton', sans-serif !important;
+      }
+
+      .why-stat-label {
+        font-size: 11px !important;
+        color: var(--orange) !important;
+        letter-spacing: 0.12em !important;
+      }
+
+      .why-slide-body {
+        font-size: 12.5px !important;
+        line-height: 1.55 !important;
+        color: rgba(26, 30, 34, 0.75) !important;
+        text-align: center !important;
+        margin-top: 10px !important;
+      }
+
+      /* COMPANY DETAILS SECTION (Uncompromised Industrial Standards) MOBILE REFINEMENTS */
+      .company-details-section {
+        padding: 48px 18px;
+        background: #cbd8e6;
+      }
+
+      .details-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .details-left {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .details-left h2 {
+        font-size: clamp(28px, 8vw, 36px);
+        line-height: 1.05;
+        color: #101214;
+        margin-bottom: 12px;
+        text-align: center;
+        letter-spacing: -0.01em;
+      }
+
+      .details-left p {
+        font-size: 13.5px;
+        line-height: 1.6;
+        color: rgba(26, 30, 34, 0.8);
+        text-align: center;
+        max-width: 100%;
+      }
+
+      .details-right {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+         .detail-card {
+        background: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 16px;
+        padding: 32px 22px;
+        border-bottom: none;
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        text-align: left;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+      }
+
+      .detail-num {
+        font-size: 22px;
+        color: var(--orange);
+        font-family: 'Anton', sans-serif;
+        flex-shrink: 0;
+        line-height: 1;
+        opacity: 1;
+        background: rgba(224, 90, 32, 0.1);
+        padding: 8px 10px;
+        border-radius: 8px;
+        margin-top: 2px;
+      }
+
+      .detail-content h3 {
+        font-size: 18px;
+        line-height: 1.2;
+        margin-top: 0;
+        margin-bottom: 6px;
+        color: #101214;
+        font-family: 'Anton', sans-serif;
+        letter-spacing: 0.01em;
+      }
+
+      .detail-content p {
+        font-size: 12.5px;
+        line-height: 1.55;
+        color: rgba(26, 30, 34, 0.75);
+        margin-bottom: 0 !important;
+        margin-top: 0;
+      }     }
     }
   </style>
 </head>
@@ -3525,6 +3877,7 @@
       ];
 
       function updateSec2Slides() {
+        if (window.innerWidth <= 600) return;
         const rect = scrollWrapper.getBoundingClientRect();
         const wrapperHeight = scrollWrapper.offsetHeight - window.innerHeight;
 
