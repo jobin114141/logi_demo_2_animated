@@ -645,11 +645,7 @@
       transform-origin: bottom right;
 
       transform:
-        perspective(2600px) 
-        rotateY(87deg) 
-        rotateX(20deg) 
-        skewx(-6deg)
-        rotateZ(23.9deg) translateX(30px) translateY(100px);
+        perspective(2600px) rotateY(87deg) rotateX(20deg) skewx(-6deg) rotateZ(23.9deg) translateX(30px) translateY(100px);
     }
 
     /* Right text: tilts inward (left) to follow right container face angle */
@@ -658,13 +654,7 @@
       transform-origin: bottom left;
 
       transform:
-        perspective(2600px) 
-        rotateY(-87deg) 
-        rotateX(-20deg) 
-        skewX(6deg) 
-        rotateZ(-23.9deg) 
-        translateX(-30px) 
-        translateY(100px);
+        perspective(2600px) rotateY(-87deg) rotateX(-20deg) skewX(6deg) rotateZ(-23.9deg) translateX(-30px) translateY(100px);
     }
 
     /* FOOTER */
@@ -959,6 +949,7 @@
         text-align: left !important;
       }
     }
+
     /* ===== INTRO BANNER SECTION (above about/goal/result) ===== */
     .intro-banner-section {
       background: var(--sky);
@@ -1000,14 +991,14 @@
     .intro-banner-line {
       flex: 1;
       height: 1px;
-      background: rgba(255,255,255,0.55);
+      background: rgba(255, 255, 255, 0.55);
       border: none;
     }
 
     .intro-banner-label {
       font-family: 'Barlow', sans-serif;
       font-size: clamp(9px, 0.78vw, 12px);
-      color: rgba(255,255,255,0.75);
+      color: rgba(255, 255, 255, 0.75);
       text-transform: uppercase;
       letter-spacing: 0.2em;
       white-space: nowrap;
@@ -1065,7 +1056,7 @@
       color: #ffffff;
       line-height: 0.85;
       letter-spacing: 0.02em;
-      white-space: nowrap;  
+      white-space: nowrap;
       text-align: center;
       width: 100%;
       position: relative;
@@ -1389,16 +1380,38 @@
     }
 
     /* Staggered progressive scroll reveal delays for items 01-04 */
-    .brokerage-flow-item:nth-child(1) { transition-delay: 0.1s; }
-    .brokerage-flow-item:nth-child(2) { transition-delay: 0.25s; }
-    .brokerage-flow-item:nth-child(3) { transition-delay: 0.4s; }
-    .brokerage-flow-item:nth-child(4) { transition-delay: 0.55s; }
+    .brokerage-flow-item:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+
+    .brokerage-flow-item:nth-child(2) {
+      transition-delay: 0.25s;
+    }
+
+    .brokerage-flow-item:nth-child(3) {
+      transition-delay: 0.4s;
+    }
+
+    .brokerage-flow-item:nth-child(4) {
+      transition-delay: 0.55s;
+    }
 
     /* Staggered progressive scroll reveal delays for specialized items 05-08 */
-    .brokerage-spec-item:nth-child(1) { transition-delay: 0.1s; }
-    .brokerage-spec-item:nth-child(2) { transition-delay: 0.25s; }
-    .brokerage-spec-item:nth-child(3) { transition-delay: 0.4s; }
-    .brokerage-spec-item:nth-child(4) { transition-delay: 0.55s; }
+    .brokerage-spec-item:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+
+    .brokerage-spec-item:nth-child(2) {
+      transition-delay: 0.25s;
+    }
+
+    .brokerage-spec-item:nth-child(3) {
+      transition-delay: 0.4s;
+    }
+
+    .brokerage-spec-item:nth-child(4) {
+      transition-delay: 0.55s;
+    }
 
     .brokerage-spec-card {
       transition-delay: 0.3s;
@@ -1539,6 +1552,7 @@
       .brokerage-spec-grid {
         grid-template-columns: 1fr;
       }
+
       .brokerage-spec-list {
         grid-template-columns: 1fr;
       }
@@ -1550,6 +1564,7 @@
         margin-top: -5vw;
         gap: 32px;
       }
+
       .seafreight-ship-img {
         margin: 0 auto;
         order: -1;
@@ -1589,7 +1604,7 @@
     .details-left p {
       font-family: 'Barlow', sans-serif;
       font-size: clamp(14px, 1.1vw, 17px);
-      color: rgba(26,30,34,0.6);
+      color: rgba(26, 30, 34, 0.6);
       line-height: 1.65;
       max-width: 480px;
     }
@@ -1607,7 +1622,7 @@
 
     .detail-card {
       padding: 32px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: flex-start;
       gap: clamp(20px, 3vw, 40px);
@@ -1645,7 +1660,7 @@
     .detail-content p {
       font-family: 'Barlow', sans-serif;
       font-size: clamp(12.5px, 1vw, 14.5px);
-      color: rgba(26,30,34,0.55);
+      color: rgba(26, 30, 34, 0.55);
       line-height: 1.6;
       max-width: 620px;
     }
@@ -1653,7 +1668,7 @@
     .detail-card:hover .detail-num {
       transform: translateX(6px);
     }
-    
+
     .detail-card:hover .detail-content h3 {
       color: var(--orange);
       transition: color 0.2s ease;
@@ -1664,8 +1679,441 @@
         grid-template-columns: 1fr;
         gap: 48px;
       }
+
       .details-left p {
         max-width: 100%;
+      }
+    }
+
+    /* ===== FAQ SECTION ===== */
+    .faq-section {
+      --faq-col1: clamp(280px, 36vw, 520px);
+      background: var(--sky);
+      padding: clamp(60px, 9vh, 110px) clamp(24px, 5vw, 72px);
+      position: relative;
+      z-index: 10;
+    }
+
+    .faq-top-row {
+      display: flex;
+      align-items: flex-start;
+      gap: clamp(20px, 4vw, 60px);
+      margin-bottom: clamp(40px, 6vh, 72px);
+    }
+
+    .faq-doubts-title {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(13px, 1.4vw, 20px);
+      color: var(--orange);
+      text-transform: uppercase;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      width: var(--faq-col1);
+      flex-shrink: 0;
+    }
+
+    .faq-right-block {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex: 1;
+      gap: clamp(20px, 3vw, 40px);
+    }
+
+    .faq-contact-heading {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(13px, 1.4vw, 20px);
+      color: var(--dark);
+      text-transform: uppercase;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      max-width: 320px;
+      text-align: left;
+    }
+
+    .faq-contact-btn {
+      width: clamp(56px, 6vw, 80px);
+      height: clamp(56px, 6vw, 80px);
+      border-radius: 50%;
+      background: var(--orange);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 8px 28px rgba(224, 90, 32, 0.4);
+      transition: transform 0.25s, box-shadow 0.25s;
+      text-decoration: none;
+    }
+
+    .faq-contact-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px rgba(224, 90, 32, 0.3);
+    }
+
+    .faq-list {
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+    }
+
+    .faq-item-header {
+      display: grid;
+      grid-template-columns: var(--faq-col1) 1fr auto;
+      align-items: center;
+      gap: clamp(20px, 4vw, 60px);
+      padding: clamp(20px, 3vh, 30px) 0;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .faq-num {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      font-size: clamp(12px, 1.1vw, 16px);
+      color: var(--dark);
+      opacity: 0.55;
+    }
+
+    .faq-question {
+      flex: 1;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: clamp(13px, 1.4vw, 20px);
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.15;
+    }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      color: var(--dark);
+      opacity: 0.6;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .faq-item.open .faq-answer {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-answer-inner {
+      overflow: hidden;
+    }
+
+    .faq-answer-body {
+      padding: 0 0 clamp(20px, 3vh, 30px) calc(var(--faq-col1) + clamp(20px, 4vw, 60px));
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(12px, 1vw, 14.5px);
+      color: rgba(26, 30, 34, 0.65);
+      line-height: 1.65;
+      max-width: 1120px;
+    }
+
+    @media (max-width: 700px) {
+      .faq-top-row {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .faq-doubts-title {
+        max-width: 100%;
+      }
+
+      .faq-right-block {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    /* Products sticky scroll wrapper */
+    .products-scroll-wrapper {
+      position: relative;
+      height: 400vh;
+    }
+
+    .products-section {
+      background: #e02010;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: clamp(60px, 8vh, 100px) clamp(24px, 5vw, 72px);
+    }
+
+    .products-inner {
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr 1fr;
+      align-items: center;
+      gap: clamp(20px, 3vw, 48px);
+      position: relative;
+      z-index: 5;
+    }
+
+    /* LEFT */
+    .products-left {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .products-headline {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(20px, 3vw, 44px);
+      color: #ffffff;
+      text-transform: uppercase;
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+    }
+
+    .products-sub {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(11px, 0.9vw, 13.5px);
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.65;
+      max-width: 420px;
+    }
+
+    /* CENTER */
+    .products-center {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      transform: translateX(-10px);
+      height: clamp(280px, 34vw, 520px);
+    }
+
+    .products-float-img {
+      width: 100%;
+      max-width: clamp(280px, 34vw, 520px);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.4));
+      position: absolute;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.95);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0.6s ease;
+      z-index: 2;
+    }
+
+    .products-float-img.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    @keyframes productFloat {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(-1deg);
+      }
+
+      50% {
+        transform: translateY(-18px) rotate(1deg);
+      }
+    }
+
+    /* RIGHT */
+    .products-right {
+      position: relative;
+      height: 340px;
+      overflow: hidden;
+    }
+
+    .products-category {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(60px);
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0.7s ease;
+      pointer-events: none;
+    }
+
+    .products-category.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .products-category.exit-up {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-60px);
+      pointer-events: none;
+    }
+
+    .products-cat-btn {
+      width: clamp(44px, 4.5vw, 60px);
+      height: clamp(44px, 4.5vw, 60px);
+      border-radius: 50%;
+      background: #ffffff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e02010;
+      flex-shrink: 0;
+      transition: transform 0.25s, background 0.2s;
+      text-decoration: none;
+      margin-bottom: 6px;
+    }
+
+    .products-cat-btn:hover {
+      transform: scale(1.1);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .products-cat-name {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: clamp(18px, 2.2vw, 32px);
+      color: #ffffff;
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+    }
+
+    .products-cat-tag {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(9px, 0.7vw, 11px);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 2px;
+    }
+
+    .products-cat-desc {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(10.5px, 0.85vw, 13px);
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    .products-cat-features {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .products-cat-features li {
+      list-style: none;
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(10px, 0.8vw, 12px);
+      color: rgba(255, 255, 255, 0.55);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .products-cat-features li::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.4);
+      flex-shrink: 0;
+    }
+
+    .products-cat-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.18);
+      margin-top: clamp(10px, 1.5vh, 18px);
+    }
+
+    /* top-right small text */
+    .products-topright {
+      position: absolute;
+      top: clamp(24px, 3vh, 40px);
+      right: clamp(24px, 5vw, 72px);
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(9px, 0.75vw, 11px);
+      color: rgba(255, 255, 255, 0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    /* top-left hamburger */
+    .products-menu-btn {
+      position: absolute;
+      top: clamp(24px, 3vh, 40px);
+      left: clamp(24px, 5vw, 72px);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    .products-menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 900px) {
+      .products-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .products-center {
+        order: -1;
+      }
+
+      .products-right {
+        flex-direction: row;
+        flex-wrap: wrap;
       }
     }
   </style>
@@ -1682,7 +2130,7 @@
         <div class="hero-nav-divider"></div>
         <a href="#services">Services</a>
         <div class="hero-nav-divider"></div>
-        <a href="#why">Why Us</a>
+        <a href="#" id="why-us-link" onclick="scrollToWhyUs(event)">Why Us</a>
         <div class="hero-nav-divider"></div>
         <a href="#contact">Contact</a>
       </nav>
@@ -1892,7 +2340,9 @@
       <div class="details-left">
         <h2>Uncompromised<br>Industrial<br>Standards</h2>
         <p>
-          Operating from key logistics hubs in the <span>United Arab Emirates</span>, Influence For Trading leverages world-class infrastructure to distribute technology, machinery, and wholesale goods with absolute efficiency. We bridge markets seamlessly, keeping compliance and safety at the absolute forefront.
+          Operating from key logistics hubs in the <span>United Arab Emirates</span>, Influence For Trading leverages
+          world-class infrastructure to distribute technology, machinery, and wholesale goods with absolute efficiency.
+          We bridge markets seamlessly, keeping compliance and safety at the absolute forefront.
         </p>
       </div>
       <div class="details-right">
@@ -1900,37 +2350,130 @@
           <div class="detail-num">01 /</div>
           <div class="detail-content">
             <h3>Port-to-Port Transit</h3>
-            <p>Direct integration with terminal operating systems for rapid container devanning, bulk handling, and priority customs clearance at major maritime ports.</p>
+            <p>Direct integration with terminal operating systems for rapid container devanning, bulk handling, and
+              priority customs clearance at major maritime ports.</p>
           </div>
         </div>
         <div class="detail-card">
           <div class="detail-num">02 /</div>
           <div class="detail-content">
             <h3>Certified Warehousing</h3>
-            <p>State-of-the-art secure facilities optimized for cold-chain, hazardous materials, high-value electronics, and automated sorting distribution pathways.</p>
+            <p>State-of-the-art secure facilities optimized for cold-chain, hazardous materials, high-value electronics,
+              and automated sorting distribution pathways.</p>
           </div>
         </div>
         <div class="detail-card">
           <div class="detail-num">03 /</div>
           <div class="detail-content">
             <h3>Regulatory Assurance</h3>
-            <p>Strictest adherence to national safety codes, customs frameworks, compliance audits, and global supply chain security standards.</p>
+            <p>Strictest adherence to national safety codes, customs frameworks, compliance audits, and global supply
+              chain security standards.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- PRODUCTS SHOWCASE SECTION -->
+  <div class="products-scroll-wrapper" id="products">
+    <section class="products-section">
+
+      <!-- Top-right small label -->
+      <div class="products-topright">Global Trade. Port to Port.</div>
+
+      <div class="products-inner">
+
+        <!-- LEFT: Headline + sub -->
+        <div class="products-left">
+          <div class="products-headline">COMPREHENSIVE<br>SHIPPING &<br>FREIGHT SOLUTIONS</div>
+          <p class="products-sub">At Influence For Trading, we deliver end-to-end maritime freight, port logistics, and
+            cargo management services built for global commerce.</p>
+        </div>
+
+        <!-- CENTER: Cargo ship image -->
+        <div class="products-center">
+          <img class="products-float-img active" id="products-ship" src="images/cargoship.png" alt="Cargo ship" />
+        </div>
+
+        <!-- RIGHT: One category shown at a time -->
+        <div class="products-right">
+
+          <div class="products-category active" data-cat="0">
+            <a href="#" class="products-cat-btn" aria-label="Sea Freight">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+            <div class="products-cat-tag">Service 01</div>
+            <div class="products-cat-name">SEA FREIGHT</div>
+            <p class="products-cat-desc">Full container load (FCL) and less than container load (LCL) shipping across
+              major global trade lanes with scheduled vessel departures.</p>
+            <ul class="products-cat-features">
+              <li>FCL & LCL container shipping</li>
+              <li>Scheduled transoceanic routes</li>
+              <li>Real-time cargo tracking</li>
+              <li>Port-to-port & door-to-door delivery</li>
+            </ul>
+          </div>
+
+          <div class="products-category" data-cat="1">
+            <a href="#" class="products-cat-btn" aria-label="Customs Clearance">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+            <div class="products-cat-tag">Service 02</div>
+            <div class="products-cat-name">CUSTOMS<br>CLEARANCE</div>
+            <p class="products-cat-desc">Expert brokerage and documentation handling for seamless import & export
+              clearance at all major UAE maritime terminals.</p>
+            <ul class="products-cat-features">
+              <li>HS-code classification & duty optimization</li>
+              <li>Pre-arrival document validation</li>
+              <li>Priority fast-track clearance</li>
+              <li>99.8% clearance success rate</li>
+            </ul>
+          </div>
+
+          <div class="products-category" data-cat="2">
+            <a href="#" class="products-cat-btn" aria-label="Cargo Warehousing">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+            <div class="products-cat-tag">Service 03</div>
+            <div class="products-cat-name">CARGO<br>WAREHOUSING</div>
+            <p class="products-cat-desc">State-of-the-art certified storage facilities with automated inventory
+              management, cold-chain support, and rapid dispatch capabilities.</p>
+            <ul class="products-cat-features">
+              <li>Bonded & free-zone warehousing</li>
+              <li>Cold-chain & hazardous cargo storage</li>
+              <li>Automated inventory management</li>
+              <li>Rapid worldwide dispatch</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
   <!-- SEAFREIGHT SECTION -->
   <section class="seafreight-section" id="seafreight">
     <div class="seafreight-headline">SEAFREIGHT</div>
-    
+
     <div class="seafreight-main-row">
       <!-- Left Column -->
       <div class="seafreight-col left">
         <div class="seafreight-item">
           <h3>HIGH<br>CAPACITY</h3>
-          <p>Our ships can transport large volumes of goods, making maritime freight ideal for bulk cargo and heavy goods.</p>
+          <p>Our ships can transport large volumes of goods, making maritime freight ideal for bulk cargo and heavy
+            goods.</p>
           <div class="seafreight-line-wrap">
             <hr class="seafreight-line" />
             <span class="seafreight-dot"></span>
@@ -1939,7 +2482,8 @@
 
         <div class="seafreight-item">
           <h3>GLOBAL<br>REACH</h3>
-          <p>Connecting major trade corridors across the UAE and international ports with reliable scheduled vessel departures.</p>
+          <p>Connecting major trade corridors across the UAE and international ports with reliable scheduled vessel
+            departures.</p>
           <div class="seafreight-line-wrap">
             <hr class="seafreight-line" />
             <span class="seafreight-dot"></span>
@@ -1948,7 +2492,8 @@
 
         <div class="seafreight-item">
           <h3>SCHEDULED<br>DEPARTURES</h3>
-          <p>Fixed sailing schedules across major maritime routes to guarantee predictable transit times for your inventory.</p>
+          <p>Fixed sailing schedules across major maritime routes to guarantee predictable transit times for your
+            inventory.</p>
           <div class="seafreight-line-wrap">
             <hr class="seafreight-line" />
             <span class="seafreight-dot"></span>
@@ -1963,7 +2508,8 @@
       <div class="seafreight-col right">
         <div class="seafreight-item">
           <h3>ENHANCED<br>SECURITY</h3>
-          <p>With advanced tracking systems and secure handling processes, we ensure the safe delivery of your shipments across international waters.</p>
+          <p>With advanced tracking systems and secure handling processes, we ensure the safe delivery of your shipments
+            across international waters.</p>
           <div class="seafreight-line-wrap">
             <span class="seafreight-dot"></span>
             <hr class="seafreight-line" />
@@ -1972,7 +2518,8 @@
 
         <div class="seafreight-item">
           <h3>COST<br>EFFICIENCY</h3>
-          <p>Optimized container load configurations and competitive freight rates to maximize value for high-volume cargo.</p>
+          <p>Optimized container load configurations and competitive freight rates to maximize value for high-volume
+            cargo.</p>
           <div class="seafreight-line-wrap">
             <span class="seafreight-dot"></span>
             <hr class="seafreight-line" />
@@ -1981,7 +2528,8 @@
 
         <div class="seafreight-item">
           <h3>SUSTAINABLE<br>OPERATIONS</h3>
-          <p>Modern vessel fleets engineered to reduce emissions and optimize fuel performance on long-haul sea routes.</p>
+          <p>Modern vessel fleets engineered to reduce emissions and optimize fuel performance on long-haul sea routes.
+          </p>
           <div class="seafreight-line-wrap">
             <span class="seafreight-dot"></span>
             <hr class="seafreight-line" />
@@ -2009,7 +2557,8 @@
         <div class="brokerage-flow-item">
           <div class="brokerage-flow-num">01 /</div>
           <h3>Customs<br>Declaration</h3>
-          <p>Full-spectrum import &amp; export declaration, HS-code classification, and duty optimization at all major UAE terminals.</p>
+          <p>Full-spectrum import &amp; export declaration, HS-code classification, and duty optimization at all major
+            UAE terminals.</p>
         </div>
 
         <div class="brokerage-flow-item">
@@ -2027,7 +2576,8 @@
         <div class="brokerage-flow-item">
           <div class="brokerage-flow-num">04 /</div>
           <h3>Compliance<br>Audits</h3>
-          <p>Regulatory advisory, trade agreement compliance, and tariff reduction strategies for international cargo.</p>
+          <p>Regulatory advisory, trade agreement compliance, and tariff reduction strategies for international cargo.
+          </p>
         </div>
       </div>
 
@@ -2054,7 +2604,8 @@
               <div class="brokerage-spec-num">06 /</div>
               <div class="brokerage-spec-info">
                 <h4>Hazardous &amp; Cold Cargo</h4>
-                <p>Dangerous goods certifications, MOIAT clearance, and active temperature-controlled maritime documentation.</p>
+                <p>Dangerous goods certifications, MOIAT clearance, and active temperature-controlled maritime
+                  documentation.</p>
               </div>
             </div>
 
@@ -2062,7 +2613,8 @@
               <div class="brokerage-spec-num">07 /</div>
               <div class="brokerage-spec-info">
                 <h4>Priority Clearance</h4>
-                <p>Pre-arrival document validation and automated risk-pass clearance for instant port-side container release.</p>
+                <p>Pre-arrival document validation and automated risk-pass clearance for instant port-side container
+                  release.</p>
               </div>
             </div>
 
@@ -2070,7 +2622,8 @@
               <div class="brokerage-spec-num">08 /</div>
               <div class="brokerage-spec-info">
                 <h4>Cross-Border Advisory</h4>
-                <p>Harmonized regional tariff processing, overland transit permits, and GCC customs union compliance support.</p>
+                <p>Harmonized regional tariff processing, overland transit permits, and GCC customs union compliance
+                  support.</p>
               </div>
             </div>
           </div>
@@ -2079,7 +2632,8 @@
           <div class="brokerage-spec-card">
             <div class="brokerage-spec-badge">100% REGULATORY ACCREDITED</div>
             <h3>ACCELERATED CUSTOMS RELEASE</h3>
-            <p>Our dedicated customs liaison team operates round-the-clock at main UAE maritime terminals, ensuring zero demurrage delays and instant shipment authorization.</p>
+            <p>Our dedicated customs liaison team operates round-the-clock at main UAE maritime terminals, ensuring zero
+              demurrage delays and instant shipment authorization.</p>
             <div class="brokerage-spec-stats">
               <div class="brokerage-stat-box">
                 <span class="stat-num">&lt;24hrs</span>
@@ -2107,6 +2661,98 @@
       </div>
     </div>
     <img class="intro-banner-img" src="images/containers_stacked.png" alt="Stacked shipping containers" />
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section" id="contact">
+    <div class="faq-top-row">
+      <div class="faq-doubts-title">STILL HAVE<br>DOUBTS?</div>
+      <div class="faq-right-block">
+        <div class="faq-contact-heading">CONTACT US TO GET ALL YOUR QUESTIONS<br>ANSWERED FOR SURE</div>
+        <a href="#contact" class="faq-contact-btn" aria-label="Contact us">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7 7 17 7 17 17" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-item-header" onclick="toggleFaq(this)">
+          <span class="faq-num">01</span>
+          <span class="faq-question">WHAT PRODUCTS DOES INFLUENCE PRO<br>TRADING SPECIALIZE IN?</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">We specialize in computers, electronics, agricultural supplies, industrial
+              machinery, and wholesale goods. Our product range is designed to support B2B clients across multiple
+              industries with reliable, high-quality sourcing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-item-header" onclick="toggleFaq(this)">
+          <span class="faq-num">02</span>
+          <span class="faq-question">HOW DO YOU HANDLE LOGISTICS FOR<br>LARGE SHIPMENTS?</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">We manage end-to-end logistics through our global freight network, including sea
+              freight, port-to-port transit, certified warehousing, and customs clearance — ensuring timely and secure
+              delivery at scale.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item open">
+        <div class="faq-item-header" onclick="toggleFaq(this)">
+          <span class="faq-num">03</span>
+          <span class="faq-question">CAN I CUSTOMIZE MY ORDER BASED ON<br>SPECIFIC BUSINESS REQUIREMENTS?</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">Yes, we provide tailored wholesale solutions, allowing you to customize orders
+              according to your business's unique demands, ensuring you get exactly what you need.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-item-header" onclick="toggleFaq(this)">
+          <span class="faq-num">04</span>
+          <span class="faq-question">HOW DO YOU ENSURE THE QUALITY OF<br>YOUR PRODUCTS?</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">All products undergo strict quality assurance checks aligned with international
+              standards. We partner only with certified suppliers and conduct regular compliance audits to maintain the
+              highest levels of product integrity.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <!-- BOTTOM CONTAINERS IMAGE
@@ -2192,6 +2838,53 @@
 
 
   <script>
+    function toggleFaq(header) {
+      const item = header.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    function scrollToWhyUs(e) {
+      e.preventDefault();
+      const wrapper = document.querySelector('.sec2-scroll-wrapper');
+      if (!wrapper) return;
+      const totalSteps = 8;
+      const targetStep = 7;
+      const wrapperHeight = wrapper.offsetHeight - window.innerHeight;
+      const targetY = wrapper.offsetTop + (targetStep / (totalSteps - 1)) * wrapperHeight;
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+    }
+
+    // Products section: scroll-driven category switcher + image swap
+    function updateProductsSlide() {
+      const wrapper = document.querySelector('.products-scroll-wrapper');
+      const categories = document.querySelectorAll('.products-category');
+      if (!wrapper || !categories.length) return;
+
+      const rect = wrapper.getBoundingClientRect();
+      const wrapperHeight = wrapper.offsetHeight - window.innerHeight;
+      if (wrapperHeight <= 0) return;
+
+      let progress = -rect.top / wrapperHeight;
+      progress = Math.max(0, Math.min(1, progress));
+
+      const total = categories.length;
+      const currentIndex = Math.min(total - 1, Math.floor(progress * total));
+
+      categories.forEach((cat, idx) => {
+        if (idx < currentIndex) {
+          cat.classList.remove('active');
+          cat.classList.add('exit-up');
+        } else if (idx === currentIndex) {
+          cat.classList.remove('exit-up');
+          cat.classList.add('active');
+        } else {
+          cat.classList.remove('active', 'exit-up');
+        }
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       const scrollWrapper = document.querySelector('.sec2-scroll-wrapper');
       const leftItems = document.querySelectorAll('.sec2-left-item');
@@ -2283,8 +2976,11 @@
       });
 
       window.addEventListener('scroll', updateSec2Slides, { passive: true });
+      window.addEventListener('scroll', updateProductsSlide, { passive: true });
       window.addEventListener('resize', updateSec2Slides, { passive: true });
+      window.addEventListener('resize', updateProductsSlide, { passive: true });
       updateSec2Slides();
+      updateProductsSlide();
 
       // Scroll reveal for INFLUENCE FOR TRADING section
       const bannerElements = document.querySelectorAll('.intro-banner-headline, .intro-banner-sub, .intro-banner-img');
